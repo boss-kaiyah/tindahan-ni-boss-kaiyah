@@ -7,41 +7,37 @@
 :root{--p:#9d5cf7;--p2:#5a189a;--bg:#fbf5ff}
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial}
 body{background:var(--bg)}
-.top{background:var(--p2);color:#fff;text-align:center;padding:7px;font-size:11px;letter-spacing:1px}
-.header{background:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:3px solid var(--p)}
-.logo{font-weight:900;color:var(--p2);font-size:18px;line-height:.9} .logo span{color:var(--p);font-size:13px;letter-spacing:1px}
-.hero{background:linear-gradient(110deg,#1a0540,#7e3aed 55%,#d8b4fe);color:#fff;padding:26px 16px;text-align:center;border-radius:0 0 20px 20px}
-.hero h1{font-size:28px;font-weight:900} .hero p{opacity:.9;margin-top:4px;font-size:13px}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:14px 12px;background:#fff} .cats::-webkit-scrollbar{display:none}
-.catBtn{white-space:nowrap;padding:10px 16px;border-radius:22px;border:2px solid var(--p);background:#fff;color:var(--p2);font-weight:800;font-size:12px;cursor:pointer}
-.catBtn.active,.catBtn:hover{background:var(--p);color:#fff}
-.section{padding:14px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px} @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 2px 10px rgba(0,0,0,.06);display:flex;flex-direction:column}
-.card-img{font-size:44px;text-align:center;margin:10px 0} .name{font-size:11px;font-weight:700;min-height:30px} .price{color:var(--p2);font-weight:900;font-size:13px} .type{font-size:10px;color:#888;margin-top:2px}
-.buy{margin-top:8px;background:var(--p);color:#fff;border:none;padding:8px;border-radius:20px;font-weight:800;cursor:pointer}
-.footer{background:#0f0a1e;color:#aaa;padding:16px;text-align:center;font-size:11px;margin-top:20px}
+.header{background:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.logo-wrap{display:flex;align-items:center;gap:10px}
+.logo-img{width:44px;height:44px;background:radial-gradient(circle at center,#9d5cf7,#5a189a);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;box-shadow:0 0 10px #9d5cf7}
+.logo-text{font-weight:900;color:var(--p2);font-size:14px;line-height:.9} .logo-text span{color:var(--p);font-size:11px;letter-spacing:1px}
+.hero{background:linear-gradient(110deg,#1a0540,#7e3aed 55%,#d8b4fe);color:#fff;padding:22px 16px;text-align:center}
+.hero h1{font-size:24px;font-weight:900} .hero p{opacity:.9;margin-top:4px;font-size:12px}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;position:sticky;top:64px;z-index:9} .cats::-webkit-scrollbar{display:none}
+.catBtn{white-space:nowrap;padding:9px 14px;border-radius:22px;border:2px solid var(--p);background:#fff;color:var(--p2);font-weight:800;font-size:11px;cursor:pointer}
+.catBtn.active{background:var(--p);color:#fff}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px} @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+.card-img{font-size:40px;text-align:center;margin:8px 0} .name{font-size:11px;font-weight:700;min-height:28px} .price{color:var(--p2);font-weight:900;font-size:13px} .type{font-size:9px;color:#888}
+.buy{margin-top:6px;background:var(--p);color:#fff;border:none;padding:7px;border-radius:20px;font-weight:800;width:100%;font-size:11px}
 </style>
 </head>
 <body>
-<div class="top">✨ TINDAHAN NI BOSS KAIYAH - LAHAT NANDITO! GCASH + SHOPEE AFFILIATE ✨</div>
 <div class="header">
-<div class="logo">TINDAHAN<br>NI BOSS KAIYAH</div>
-<div style="font-weight:900">🛒 <span id="cnt">0</span></div>
+<div class="logo-wrap">
+<div class="logo-img">BK</div>
+<div class="logo-text">TINDAHAN<br>NI BOSS KAIYAH</div>
 </div>
+<div>🛒 <b id="cnt">0</b></div>
+</div>
+
 <div class="hero">
 <h1>Tindahan ni Boss Kaiyah</h1>
 <p>Lahat ng hanap mo nandito - Tech, Gadget, Damit, Motor atbp!</p>
 </div>
 
 <div class="cats" id="catBar"></div>
-
-<div class="section">
-<h3 id="catTitle" style="margin-bottom:10px">All Products 💜</h3>
-<div class="grid" id="grid"></div>
-</div>
-
-<div class="footer">© 2026 Tindahan ni Boss Kaiyah | Parañaque City | boss-kaiyah.github.io</div>
+<div id="grid" class="grid"></div>
 
 <script>
 const cats=["All","Tech Parts & Accessories","Gadget","Appliances","Clothes","Bag","School Supply","Motorcycle Accessories","Beauty","Home & Living"];
@@ -49,42 +45,26 @@ const prods=[
 {id:1,name:'Mechanical Keyboard RGB',cat:'Tech Parts & Accessories',price:799,img:'⌨️'},
 {id:2,name:'Gaming Mouse 3200 DPI',cat:'Tech Parts & Accessories',price:299,img:'🖱️'},
 {id:3,name:'NVMe SSD 512GB',cat:'Tech Parts & Accessories',price:1999,img:'💾'},
-{id:4,name:'Powerbank 20000mAh Fast Charge',cat:'Gadget',price:599,img:'🔋'},
+{id:4,name:'Powerbank 20000mAh',cat:'Gadget',price:599,img:'🔋'},
 {id:5,name:'Wireless Earbuds TWS',cat:'Gadget',price:399,img:'🎧'},
 {id:6,name:'Phone Holder Motorcycle',cat:'Motorcycle Accessories',price:149,img:'📱'},
-{id:7,name:'Mini Electric Fan Portable',cat:'Appliances',price:349,img:'🌀'},
+{id:7,name:'Mini Electric Fan',cat:'Appliances',price:349,img:'🌀'},
 {id:8,name:'Rice Cooker 1.8L',cat:'Appliances',price:899,img:'🍚'},
-{id:9,name:'Oversized T-Shirt Unisex',cat:'Clothes',price:249,img:'👕'},
-{id:10,name:'Cargo Shorts 6 Pocket',cat:'Clothes',price:299,img:'🩳'},
+{id:9,name:'Oversized T-Shirt',cat:'Clothes',price:249,img:'👕'},
+{id:10,name:'Cargo Shorts',cat:'Clothes',price:299,img:'🩳'},
 {id:11,name:'Sling Bag Waterproof',cat:'Bag',price:199,img:'👜'},
-{id:12,name:'Backpack for School',cat:'Bag',price:399,img:'🎒'},
+{id:12,name:'Backpack School',cat:'Bag',price:399,img:'🎒'},
 {id:13,name:'Notebook Set 6pcs',cat:'School Supply',price:129,img:'📓'},
-{id:14,name:'Gel Pen Set 12 Colors',cat:'School Supply',price:89,img:'🖊️'},
-{id:15,name:'Motorcycle Helmet Visor Clear',cat:'Motorcycle Accessories',price:199,img:'🪖'},
-{id:16,name:'LED Headlight Bulb Motorcycle',cat:'Motorcycle Accessories',price:349,img:'💡'},
-{id:17,name:'Lip Tint & Liptint',cat:'Beauty',price:99,img:'💄'},
-{id:18,name:'Storage Box Foldable',cat:'Home & Living',price:199,img:'📦'},
+{id:14,name:'Gel Pen 12 Colors',cat:'School Supply',price:89,img:'🖊️'},
+{id:15,name:'Helmet Visor Clear',cat:'Motorcycle Accessories',price:199,img:'🪖'},
 ];
-
-let active='All';
-let cart=JSON.parse(localStorage.getItem('bkb')||'[]');
-
-function renderCats(){
-document.getElementById('catBar').innerHTML=cats.map(c=>`<button class="catBtn ${active==c?'active':''}" onclick="filterCat('${c}')">${c}</button>`).join('');
-}
-function renderProducts(){
-let f= active=='All'? prods : prods.filter(p=>p.cat==active);
-document.getElementById('catTitle').innerText=active=='All'?`All Products - ${prods.length} items 💜`:`${active} - ${f.length} items`;
-document.getElementById('grid').innerHTML=f.map(p=>`
-<div class="card"><div class="card-img">${p.img}</div><div class="name">${p.name}</div><div class="type">${p.cat}</div><div class="price">₱${p.price}</div><button class="buy" onclick="add(${p.id})">Add to Cart</button></div>
-`).join('') || `<p style="grid-column:1/-1;text-align:center;padding:20px">Wala pa tayong ${active} Boss, magdadagdag pa tayo!</p>`;
-update();
-}
-function filterCat(c){active=c;renderCats();renderProducts();}
-function add(id){let pr=prods.find(x=>x.id==id);let f=cart.find(x=>x.id==id);if(f)f.q++;else cart.push({...pr,q:1});localStorage.setItem('bkb',JSON.stringify(cart));update();alert(pr.name+' added!');}
-function update(){document.getElementById('cnt').innerText=cart.reduce((a,b)=>a+b.q,0);}
-
-renderCats();renderProducts();
+let active='All';let cart=JSON.parse(localStorage.getItem('bkc')||'[]');
+function renderCats(){document.getElementById('catBar').innerHTML=cats.map(c=>`<button class="catBtn ${active==c?'active':''}" onclick="filterCat('${c}')">${c}</button>`).join('');}
+function renderGrid(){let f=active=='All'?prods:prods.filter(p=>p.cat==active);document.getElementById('grid').innerHTML=f.map(p=>`<div class="card"><div class="card-img">${p.img}</div><div class="name">${p.name}</div><div class="type">${p.cat}</div><div class="price">₱${p.price}</div><button class="buy" onclick="add(${p.id})">Add to Cart</button></div>`).join('');upd();}
+function filterCat(c){active=c;renderCats();renderGrid();}
+function add(id){let pr=prods.find(x=>x.id==id);let fn=cart.find(x=>x.id==id);if(fn)fn.q++;else cart.push({...pr,q:1});localStorage.setItem('bkc',JSON.stringify(cart));upd();alert('Added: '+pr.name);}
+function upd(){document.getElementById('cnt').innerText=cart.reduce((a,b)=>a+b.q,0);}
+renderCats();renderGrid();
 </script>
 </body>
 </html>
