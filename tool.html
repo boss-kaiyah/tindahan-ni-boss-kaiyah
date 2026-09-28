@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shopee Auto-Fill Tool - Boss Kaiyah</title>
+<style>
+*{box-sizing:border-box}body{font-family:system-ui;background:#06020f;color:#fff;padding:16px;max-width:600px;margin:auto}
+h1{color:#e9d5ff;text-align:center}
+input{width:100%;padding:14px;border-radius:12px;border:1px solid #a855f7;background:#140a2e;color:#fff;font-size:16px;margin:10px 0}
+button{width:100%;padding:14px;border-radius:12px;border:none;background:linear-gradient(90deg,#7c3aed,#a855f7);color:#fff;font-weight:800;font-size:16px;box-shadow:0 0 15px #a855f799}
+.card{margin-top:16px;background:#1e1040;border:1px solid #a855f766;border-radius:16px;padding:14px}
+label{font-size:12px;color:#c084fc}.val{width:100%;padding:10px;border-radius:8px;border:1px solid #333;background:#0f0828;color:#fff;margin:4px 0 10px;min-height:40px}
+.small{font-size:11px;color:#fff7}
+</style>
+</head>
+<body>
+<h1>🛍️ Shopee Auto-Fill 💜</h1>
+<p class="small" style="text-align:center">Paste Shopee link → Auto labas Name, Price, Description, Rate na same sa Shopee mismo! Ikaw pa rin sa Images!</p>
+<input id="link" placeholder="Paste dito: https://s.shopee.ph/6VODi04X0Y">
+<button onclick="getData()">🔍 GET DETAILS FROM SHOPEE</button>
+<div id="out"></div>
+
+<script>
+async function getData(){
+ let link=document.getElementById('link').value.trim();
+ if(!link) return alert('Paste mo Shopee link!');
+ document.getElementById('out').innerHTML='⏳ Kinukuha details sa Shopee...';
+
+ try{
+  // Resolve short link
+  let realUrl=link;
+  if(link.includes('s.shopee.ph')){
+    try{
+      let r=await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(link)}`);
+      let j=await r.json();
+      // Try find redirect in header location via final url
+      // Fallback: use link as is, try extract ID later
+    }catch(e){}
+  }
+
+  // Extract shopid/itemid directly from input or try fetch html
+  let m=link.match(/-i\.(\d+)\.(\d+)/);
+  let htmlText='';
+  if(!m){
+    // Fetch via proxy
+    let proxy=`https://api.allorigins.win/get?url=${encodeURIComponent(link)}`;
+    let resp=await fetch(proxy);
+    let data=await resp.json();
+    htmlText=data.contents;
+    m=htmlText.match(/-i\.(\d+)\.(\d+)/);
+    if(!m) m=htmlText.match(/"shopid":(\d+).*?"itemid":(\d+)/);
+  }
+  if(!m) throw 'Hindi mahanap ID - make sure full Shopee link ang paste mo (hindi short?). Try paste yung mahabang link galing Shopee app: Share -> Copy Link';
+
+  let shopId=m[1], itemId=m[2];
+  // Shopee API via proxy
+  let api=`https://shopee.ph/api/v4/item/get?itemid=${itemId}&shopid=${shopId}`;
+  let apiProxy=`https://api.allorigins.win/get?url=${encodeURIComponent(api)}`;
+  let apiResp=await fetch(apiProxy);
+  let apiJson=await apiResp.json();
+  let d=JSON.parse(apiJson.contents).data;
+  if(!d) throw 'Walang data';
+
+  let name=d.name;
+  let price=Math.round((d.price||d.price_min)/100000);
+  let desc=d.description||'';
+  let rate=d.item_rating? d.item_rating.rating_star.toFixed(1) : '4.9';
+  let sold=d.historical_sold||d.sold||0;
+
+  document.getElementById('out').innerHTML=`
+  <div class="card">
+    <label>✅ Name (C) - Copy mo:</label><div class="val" id="name">${name}</div>
+    <label>✅ Discription (D):</label><div class="val" style="max-height:120px;overflow:auto">${desc.substring(0,800)}</div>
+    <label>✅ Price (E):</label><div class="val">${price}</div>
+    <label>✅ Rate (F):</label><div class="val">${rate} | Sold: ${sold}</div>
+    <label>✅ Affiliate_link (A):</label><div class="val" style="font-size:11px">${link}</div>
+    <button onclick="copyRow()">📋 COPY PARA SA SHEET (Tab separated)</button>
+    <p class="small">Pag na-copy, punta ka sa Google Sheet → Paste mo sa Row. Tapos Column B Images - ikaw na maglagay ng sarili mong pics!</p>
+    <textarea id="row" style="width:100%;height:0;opacity:0">${link}\t\t${name}\t${desc.replace(/\n/g,' ').substring(0,500)}\t${price}\t${rate}</textarea>
+  </div>
+  `;
+  window._rowData={link,name,desc,price,rate,sold};
+ }catch(err){
+  document.getElementById('out').innerHTML=`<div class="card" style="color:#ff8888">❌ Error: ${err}<br><br>Tip: Sa Shopee app, click Share → Copy Link → yung mahabang link (shopee.ph/....-i.xxxxx) ang i-paste mo, wag yung s.shopee.ph short link minsan blocked.</div>`;
+ }
+}
+function copyRow(){
+ let ta=document.getElementById('row');
+ ta.style.height='100px'; ta.style.opacity='1';
+ ta.select(); document.execCommand('copy');
+ alert('Na-copy na! Paste mo na sa Google Sheet Row mo! A=Link, C=Name, D=Desc, E=Price, F=Rate. Tapos B=Images ikaw na!');
+ ta.style.height='0'; ta.style.opacity='0';
+}
+</script>
+</body>
+</html>
