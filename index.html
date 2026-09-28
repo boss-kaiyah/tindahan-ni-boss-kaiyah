@@ -1,84 +1,76 @@
 <!DOCTYPE html>
 <html lang="tl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tindahan ni Boss Kaiyah - Purple Store</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tindahan ni Boss Kaiyah</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Outfit',system-ui;background:#06020f;color:#fff;min-height:100vh}
-.bg-grid{background:radial-gradient(ellipse at top,#3a1a7a 0%,#0a021a 60%),linear-gradient(180deg,#0e0528 0%,#05010e 100%)}
-.header{position:sticky;top:0;z-index:10;background:rgba(18,8,40,.85);backdrop-filter:blur(12px);border:1px solid rgba(168,85,247,.4);border-radius:18px;margin:12px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 0 25px rgba(168,85,247,.35)}
-.card{background:linear-gradient(180deg,#1a0f3a 0%,#120a28 100%);border:1px solid rgba(168,85,247,.35);border-radius:24px;overflow:hidden;box-shadow:0 0 30px rgba(120,40,200,.25)}
+body{font-family:'Outfit',system-ui;background:#06020f;color:#fff}
+.wrap{max-width:480px;margin:auto}
+.header{position:sticky;top:0;z-index:20;margin:12px;background:rgba(22,10,45,.9);backdrop-filter:blur(12px);border:1px solid #a855f755;border-radius:18px;padding:12px 16px;display:flex;justify-content:space-between;box-shadow:0 0 20px #a855f766}
+.card{margin:0 12px;background:linear-gradient(180deg,#1e1040,#120a28);border:1px solid #a855f766;border-radius:24px;overflow:hidden;box-shadow:0 0 25px #7c3aed44}
 .gallery{position:relative;aspect-ratio:1;background:#0f0828}
 .track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:100%}
 .track::-webkit-scrollbar{display:none}
-.track img{width:100%;flex:0 0 100%;scroll-snap-align:start;object-fit:contain;padding:12px}
-.badge{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.6);border:1px solid #c084fc;color:#e9a6ff;padding:6px 12px;border-radius:12px;font-weight:800;backdrop-filter:blur(6px)}
-.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:rgba(0,0,0,.5);padding:6px 12px;border-radius:20px}
-.dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);transition:.2s}
-.dots span.active{background:#d8b4fe;box-shadow:0 0 10px #d8b4fe;width:22px}
-.price{color:#e9a6ff;text-shadow:0 0 12px #a855f7}
-.btn{display:block;background:linear-gradient(90deg,#7c3aed,#a855f7);box-shadow:0 0 20px rgba(168,85,247,.6),inset 0 0 0 1px rgba(255,255,255,.2);color:#fff;text-align:center;padding:14px;border-radius:16px;font-weight:800;text-decoration:none;font-size:16px}
-.tag{display:inline-flex;gap:6px;align-items:center;border:1px solid rgba(168,85,247,.5);background:rgba(168,85,247,.15);padding:6px 10px;border-radius:12px;font-size:12px;color:#d8b4fe}
-.grid{max-width:480px;margin:0 auto;padding:0 12px 30px}
+.track img{flex:0 0 100%;width:100%;object-fit:contain;padding:10px;scroll-snap-align:start}
+.badge{position:absolute;top:12px;left:12px;background:#0008;border:1px solid #d8b4fe;color:#e9d5ff;padding:6px 12px;border-radius:12px;font-weight:800;font-size:12px}
+.dots{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:#0008;padding:6px 10px;border-radius:20px}
+.dots span{width:8px;height:8px;border-radius:50%;background:#fff4}
+.dots span.active{background:#e9d5ff;width:20px;box-shadow:0 0 8px #d8b4fe}
+.btn{width:100%;background:linear-gradient(90deg,#7c3aed,#a855f7);border:none;padding:16px;border-radius:16px;color:#fff;font-weight:800;font-size:17px;box-shadow:0 0 20px #a855f799;display:block;text-align:center;text-decoration:none}
+.tag{border:1px solid #a855f788;background:#a855f722;padding:5px 10px;border-radius:10px;font-size:11px;color:#d8b4fe;display:inline-block;margin:2px}
 </style>
 </head>
-<body class="bg-grid">
-<div class="max-w-[480px] mx-auto">
-<div class="header">
-<div class="flex items-center gap-2"><span style="font-size:24px">🛍️</span><h1 style="font-weight:800;line-height:1">Tindahan ni<br>Boss Kaiyah</h1></div>
-<div style="display:flex;gap:12px;font-size:20px">💜 🛒</div>
-</div>
-
-<div id="store" class="grid"></div>
-<p style="text-align:center;font-size:11px;color:rgba(255,255,255,.3);padding-bottom:30px">Trusted by 5K+ riders • Ships from Manila • 7-Day Return • Purple Edition v2.0</p>
+<body>
+<div class="wrap">
+<div class="header"><b>🛍️ Tindahan ni Boss Kaiyah</b><span>💜</span></div>
+<div id="store" style="padding-bottom:30px">Loading Beast Tire...</div>
 </div>
 
 <script>
 const API="https://opensheet.elk.sh/19KzFSe2smKM5k1qhQbynFF2kGJGga-yswjH4L8TX9tM/Sheet1";
 async function load(){
- const r=await fetch(API);
- const data=await r.json();
- const store=document.getElementById('store');
- store.innerHTML='';
- data.filter(p=>p.Name).forEach(p=>{
-  let imgs=(p.images||'').toString().split(',').map(s=>s.trim()).filter(Boolean);
-  if(!imgs.length) imgs=['https://via.placeholder.com/600'];
-  const el=document.createElement('div');
-  el.className='card';
-  el.innerHTML=`
-   <div class="gallery">
-    <div class="badge">${imgs.length} PICS</div>
-    <div class="track" onscroll="upd(this)">
-     ${imgs.map(s=>`<img src="${s}" loading="lazy" onerror="this.src='https://via.placeholder.com/600'">`).join('')}
+ try{
+  const r=await fetch(API);
+  const data=await r.json();
+  const store=document.getElementById('store');
+  store.innerHTML='';
+  data.filter(p=>p.Name).forEach(p=>{
+   let link=(p.Affiliate_link||p.Affiliate_Link||p.affiliate_link||'').toString().trim();
+   let imgs=(p.images||'').toString().split(',').map(s=>s.trim()).filter(Boolean);
+   if(!imgs.length) imgs=['https://via.placeholder.com/600'];
+   const div=document.createElement('div');
+   div.className='card';
+   div.innerHTML=`
+    <div class="gallery">
+     <div class="badge">${imgs.length} PICS • Swipe 👉</div>
+     <div class="track" onscroll="upd(this)">${imgs.map(s=>`<img src="${s}">`).join('')}</div>
+     <div class="dots">${imgs.map((_,i)=>`<span class="${i==0?'active':''}"></span>`).join('')}</div>
     </div>
-    <div class="dots">${imgs.map((_,i)=>`<span class="${i==0?'active':''}"></span>`).join('')}</div>
-   </div>
-   <div style="padding:20px">
-    <h2 style="font-weight:800;font-size:18px;line-height:1.2">${p.Name} — Tubeless Off-Road/Street Tire</h2>
-    <p style="color:#c084fc;font-size:13px;margin-top:4px">Sizes: 110/70-17 • 120/70-17 • 130/70-17</p>
-    <div style="display:flex;align-items:center;gap:8px;margin-top:12px">
-     <span>⭐</span><b>4.8</b><span style="color:rgba(255,255,255,.5);font-size:13px">(1.2K sold)</span>
-     <span class="tag">✅ Verified • 500+ Reviews</span>
-    </div>
-    <div class="price" style="font-size:32px;font-weight:900;margin-top:12px">₱${p.Price}</div>
-    <p style="color:rgba(255,255,255,.5);font-size:12px;margin-top:-2px">Variant Price Range • Price depends on size</p>
-    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-     <span class="tag">✅ COD Available</span>
-     <span class="tag">🚚 FREE SHIPPING</span>
-     <span class="tag">🛡️ 100% Authentic</span>
-    </div>
-    <div style="margin-top:12px;border:1px solid rgba(168,85,247,.3);border-radius:12px;padding:10px;text-align:center;color:#d8b4fe;font-size:13px;font-weight:700">🏷️ Shop Voucher: ₱100 OFF min ₱1000</div>
-    <a href="${p.Affiliate_link||'#'}" target="_blank" class="btn" style="margin-top:12px">🛒 Buy sa Shopee</a>
-   </div>`;
-  store.appendChild(el);
- });
+    <div style="padding:18px">
+     <h2 style="font-size:19px;line-height:1.2">${p.Name}</h2>
+     <p style="color:#c084fc;font-size:13px;margin-top:4px">Tubeless • 110/70-17 • 120/70-17 • 130/70-17</p>
+     <div style="margin-top:10px">⭐ <b>4.8</b> <span style="color:#fff6;font-size:13px">(1.2K sold) • Verified</span></div>
+     <div style="font-size:32px;font-weight:900;color:#e9d5ff;margin-top:10px;text-shadow:0 0 10px #a855f7">₱${p.Price}</div>
+     <div style="margin-top:8px"><span class="tag">✅ COD</span><span class="tag">🚚 FREE SHIPPING</span><span class="tag">🛡️ Authentic</span></div>
+     <button onclick="buyNow('${link}')" class="btn" style="margin-top:14px">🛒 BUY SA SHOPEE - DERETSO SHOPEE</button>
+     <p style="text-align:center;color:#fff5;font-size:11px;margin-top:8px">Click para deretso sa Shopee app • Affiliate Link: ${link.substring(0,30)}...</p>
+    </div>`;
+   store.appendChild(div);
+  });
+ }catch(e){document.getElementById('store').innerHTML='Error: '+e;}
 }
 function upd(el){
  const i=Math.round(el.scrollLeft/el.clientWidth);
  el.parentElement.querySelectorAll('.dots span').forEach((d,idx)=>d.className=idx==i?'active':'');
+}
+function buyNow(link){
+ if(!link){alert('Walang Shopee link sa Sheet! Lagyan mo Affiliate_link!'); return;}
+ // FORCE DIRECT TO SHOPEE
+ window.location.href=link; // deretso sa Shopee, hindi new tab
+ // Fallback kung blocked: open in new tab after 300ms
+ setTimeout(()=>window.open(link,'_blank'),300);
 }
 load();
 </script>
