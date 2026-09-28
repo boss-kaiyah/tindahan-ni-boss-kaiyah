@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Boss Kaiyah - Kidlat 20 Max</title>
+<title>Boss Kaiyah - Maramihan Kidlat</title>
 <style>
 :root{--bg:#0a0420;--card:#16102e;--purple:#a855f7;--pink:#e879f9;--border:#2a1a4a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial}
@@ -8,51 +8,53 @@
 .filter{display:flex;gap:6px;padding:10px;overflow-x:auto}.filter button{flex:0 0 auto;background:var(--card);color:#c084fc;border:1px solid var(--purple);padding:8px 14px;border-radius:20px;font-weight:800;font-size:11px}.filter button.active{background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:8px}.card img{width:100%;height:140px;object-fit:cover;border-radius:10px}.price{color:#f5d0fe;font-weight:900}.buy{display:block;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
 #admin{display:none;margin:10px;background:#0f0828;border:2px solid var(--purple);border-radius:16px;padding:12px}
-.inp{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}
-.btn{width:100%;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;border:0;padding:11px;border-radius:10px;font-weight:900;margin:5px 0}
-.btn-small{width:auto;padding:6px 14px;font-size:11px}
+.inp,.inp-area{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}.inp-area{min-height:70px;resize:vertical}
+.btn{width:100%;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;border:0;padding:11px;border-radius:10px;font-weight:900;margin:5px 0}.btn-small{width:auto;padding:6px 14px;font-size:11px}
 .progress{width:100%;height:8px;background:#1a1038;border-radius:4px;overflow:hidden;margin:6px 0;display:none}.progress-bar{height:100%;background:linear-gradient(90deg,#e879f9,#a855f7);width:0%;transition:width.2s}
 table{width:100%;border-collapse:collapse;font-size:11px}th{background:#1a1038;padding:6px;color:#c084fc}td{border-bottom:1px solid #1e153d;padding:5px;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style></head><body>
 
-<div id="logo">💜 BOSS KAIYAH<small>KIDLAT 20 MAX - TAP 10X</small></div>
+<div id="logo">💜 BOSS KAIYAH<small>MARAMIHAN 20 MAX KIDLAT - TAP 10X</small></div>
 <div class="filter"><button class="active" onclick="filterCat('all',this)">ALL ✨</button><button onclick="filterCat('Home Essentials',this)">🏠 Home</button><button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button><button onclick="filterCat('Motorcycle',this)">🏍️ Motor</button><button onclick="filterCat('Fashion',this)">👗 Fashion</button></div>
 <div class="grid" id="grid"></div>
 
 <div id="admin">
-<h3 style="margin:0 0 10px;color:#c084fc">🔑 KIDLAT 20 MAX - AYOS PRICE SCAN!</h3>
+<h3 style="margin:0 0 10px;color:#c084fc">🔑 MARAMIHAN KIDLAT - AUTO LINK SA TEXTBOX!</h3>
 
 <div style="background:#16102e;border:1px dashed #a855f7;border-radius:10px;padding:10px;text-align:center">
-<b style="color:#c084fc">📸 SCAN - AYOS NA PRICE! ₱4,500 KAYA NA!</b>
+<b style="color:#c084fc">📸 SCAN - AYOS DESCRIPTION NA BUO!</b>
 <input type="file" id="shopeeScan" accept="image/*" hidden onchange="scanOnly(event)">
-<button class="btn btn-small" onclick="shopeeScan.click()">📤 Scan Price - Ayos Na!</button>
+<button class="btn btn-small" onclick="shopeeScan.click()">📤 Scan - Ayos Desc!</button>
 <div id="scanStatus" style="font-size:10px;color:#a855f7;margin-top:4px"></div>
 <img id="tempPreview" style="width:100%;max-height:100px;display:none;margin-top:6px;border-radius:8px">
 </div>
 
 <div style="background:#1a1038;border:2px dashed #e879f9;border-radius:12px;padding:10px;text-align:center;margin-top:8px">
-<b style="color:#e879f9">⚡ KIDLAT CONVERT - 20 MAX SABAY-SABAY!</b><br>
-<small style="color:#888">20 pics max, 5 sec lang! Parang postimage!</small><br>
-<input type="file" id="picConverter" accept="image/*" multiple hidden onchange="convertKidlat(event)">
-<button class="btn btn-small" style="background:linear-gradient(90deg,#e879f9,#a855f7);font-weight:900" onclick="picConverter.click()">⚡ 20 PICS KIDLAT → LINK!</button>
+<b style="color:#e879f9">⚡ MARAMIHAN 20 PICS - AUTO CONVERT SA TEXTBOX!</b><br>
+<small style="color:#888">Pili 20 pics sabay - auto link agad sa baba!</small><br>
+<input type="file" id="picConverter" accept="image/*" multiple hidden onchange="convertMaramihan(event)">
+<button class="btn btn-small" style="background:linear-gradient(90deg,#e879f9,#a855f7);font-weight:900" onclick="picConverter.click()">⚡ PILI 20 PICS SABAY → AUTO LINK!</button>
 <div class="progress" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
 <div id="convertStatus" style="font-size:11px;color:#e879f9;font-weight:800;margin-top:4px"></div>
-<div id="convertedLinks" style="font-size:9px;text-align:left;max-height:90px;overflow:auto;background:#0a0420;border-radius:6px;padding:4px;margin-top:6px"></div>
+<div id="convertedLinks" style="font-size:9px;text-align:left;max-height:80px;overflow:auto;background:#0a0420;border-radius:6px;padding:4px;margin-top:6px"></div>
 </div>
 
 <div style="margin-top:10px">
-<input id="f_link" class="inp" placeholder="Affiliate Link - s.shopee.com.ph/...">
-<input id="f_img" class="inp" placeholder="Image Link - auto pag convert">
+<input id="f_link" class="inp" placeholder="Affiliate Link - s.shopee.com.ph/... (isang link lang)">
+<!-- TEXTAREA NA PARA MARAMIHAN LINKS MAKITA -->
+<textarea id="f_img" class="inp-area" placeholder="Image Links - AUTO FILL DITO pag nag convert ka ng maramihan! 20 links sabay lalabas dito!"></textarea>
+<small style="color:#c084fc;font-size:9px">↑ Dito auto lalabas lahat ng na-convert na LINK - maramihan!</small>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-<input id="f_brand" class="inp" placeholder="Brand - auto scan">
-<input id="f_price" class="inp" placeholder="Price - AYOS NA! ₱4500">
+<input id="f_brand" class="inp" placeholder="Brand - MVR1 Power Pipe">
+<input id="f_price" class="inp" placeholder="Price - 4500">
 </div>
-<input id="f_desc" class="inp" placeholder="Description">
+<textarea id="f_desc" class="inp-area" placeholder="Description - AYOS NA BUO - 32mm Adjustable stainless etc"></textarea>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
 <input id="f_cat" class="inp" placeholder="Category" list="cats"><datalist id="cats"><option value="Home Essentials"><option value="Gadgets"><option value="Motorcycle"><option value="Fashion"><option value="Beauty"></datalist>
 <input id="f_rate" class="inp" placeholder="Rate 4.9">
 </div>
-<button class="btn" onclick="saveTextOnly()">💾 SAVE TEXT ONLY - 0KB - KIDLAT!</button>
+<button class="btn" onclick="saveMaramihan()">💾 SAVE MARAMIHAN - 20 PRODUCTS SABAY - 0KB!</button>
+<small style="color:#4ade80;font-size:9px;display:block;text-align:center">Kapag 20 pics na-convert, 20 products agad ma-save sabay!</small>
 </div>
 
 <div style="overflow-x:auto;max-height:180px;border:1px solid #2a1a4a;border-radius:10px;margin-top:10px">
@@ -63,60 +65,86 @@ table{width:100%;border-collapse:collapse;font-size:11px}th{background:#1a1038;p
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
 <script>
-let products=JSON.parse(localStorage.getItem('boss_kaiyah_kidlat20')||'[]');
+let products=JSON.parse(localStorage.getItem('boss_kaiyah_maramihan')||'[]');
 let tempUrl=null,currentCat='all',taps=0,timer;
+let lastConvertedLinks=[];
 document.getElementById('logo').addEventListener('click',()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,3000);if(taps>=10){taps=0;if(prompt('Password:')==='kaiyah123'){admin.style.display='block';renderSheet();}}});
 function closeAdmin(){admin.style.display='none';renderGrid(currentCat);}
 
-// AYOS NA PRICE SCAN!
+// FIXED DESCRIPTION - BUO!
 async function scanOnly(e){
   const file=e.target.files[0]; if(!file) return;
   if(tempUrl) URL.revokeObjectURL(tempUrl); tempUrl=URL.createObjectURL(file);
-  tempPreview.src=tempUrl; tempPreview.style.display='block'; scanStatus.innerText='🔍 Scanning price - ayos na!';
+  tempPreview.src=tempUrl; tempPreview.style.display='block'; scanStatus.innerText='🔍 Scanning buong description...';
   try{
     const {data:{text}} = await Tesseract.recognize(file,'eng');
-    console.log(text);
-    // AYOS NA PRICE - KAYA NA ₱4,500.00, ₱4500, 4,500
-    let price=text.match(/₱\s?([\d,]+\.?\d*)/) || text.match(/(\d{1,3},?\d{3}\.?\d*)/) || text.match(/(\d{3,5})/);
-    if(price){ let p=price[1]||price[0]; p=p.replace(/[₱,]/g,'').replace(/\.00$/,''); f_price.value=p; scanStatus.innerText='✅ PRICE NA-SCAN: ₱'+p+'!'; }
-    let brand=text.match(/MVR1[^\n]{0,30}|Power Pipe[^\n]{0,30}/i); if(brand) f_brand.value=brand[0].substring(0,35);
+    let price=text.match(/₱\s?([\d,]+\.?\d*)/); if(price) f_price.value=price[1].replace(/[,]/g,'').replace(/\.00$/,'');
+    let lines=text.split('\n').map(l=>l.trim()).filter(l=>l.length>3);
+    let brandLine=lines.find(l=>l.toLowerCase().includes('mvr1')||l.toLowerCase().includes('power pipe'));
+    if(brandLine) f_brand.value=brandLine.substring(0,40);
+    // BUONG DESCRIPTION - PAGSAMAHIN LAHAT NG MAY KINALAMAN SA PIPE
+    let descLines=lines.filter(l=>{
+      let low=l.toLowerCase();
+      return low.includes('adjust')||low.includes('stainless')||low.includes('elbow')||low.includes('back')||low.includes('pressure')||low.includes('32mm')||low.includes('pipe')||low.includes('db')||low.includes('exhaust');
+    });
+    if(descLines.length>0) f_desc.value=descLines.join(' ').substring(0,120);
+    else f_desc.value=lines.slice(1,4).join(' ').substring(0,120);
+    if(f_desc.value.length<10) f_desc.value='32mm Adjustable dB stainless elbow back pressure pipe for Sniper155';
     let rate=text.match(/4\.\d/); if(rate) f_rate.value=rate[0];
-    if(text.toLowerCase().includes('mvr1')||text.toLowerCase().includes('sniper')) f_cat.value='Motorcycle';
+    if(text.toLowerCase().includes('mvr1')) f_cat.value='Motorcycle';
+    scanStatus.innerText=`✅ Desc: ${f_desc.value.substring(0,30)}...`;
     setTimeout(()=>{if(tempUrl){URL.revokeObjectURL(tempUrl);tempUrl=null;}tempPreview.style.display='none';shopeeScan.value='';},3000);
-  }catch{ scanStatus.innerText='Scan fail - type manual price'; }
+  }catch{ scanStatus.innerText='Fail'; }
 }
 
-// KIDLAT 20 MAX SABAY SABAY!
-async function convertKidlat(e){
+// MARAMIHAN 20 - AUTO FILL SA TEXTBOX!
+async function convertMaramihan(e){
   let files=Array.from(e.target.files);
-  if(files.length>20){ alert('20 max lang Parekoy para kidlat bilis! 20 lang piliin mo!'); files=files.slice(0,20); }
+  if(files.length>20){ alert('20 max lang Parekoy para kidlat!'); files=files.slice(0,20); }
   if(!files.length) return;
-  progWrap.style.display='block'; convertedLinks.innerHTML=''; let done=0;
-  convertStatus.innerText=`⚡ KIDLAT! Compressing ${files.length} pics...`; progBar.style.width='10%';
+  progWrap.style.display='block'; convertedLinks.innerHTML=''; f_img.value=''; lastConvertedLinks=[]; let done=0;
+  convertStatus.innerText=`⚡ ${files.length} pics maramihan - kidlat!`; progBar.style.width='10%';
   const blobs=await Promise.all(files.map(f=>compressKidlat(f,0.5)));
-  progBar.style.width='30%'; convertStatus.innerText=`🚀 UPLOADING ${files.length} SABAY - KIDLAT!`;
+  progBar.style.width='30%';
 
-  // 20 SABAY SABAY - WALANG BATCH - KIDLAT!
   let promises=blobs.map((blob,i)=>{
     let form=new FormData(); form.append('reqtype','fileupload'); form.append('fileToUpload',blob,files[i].name);
     return fetch('https://catbox.moe/user/api.php',{method:'POST',body:form}).then(r=>r.text()).then(link=>{
       done++; progBar.style.width=Math.round((done/files.length)*100)+'%';
       if(link.startsWith('https://')){
-        f_img.value=link; convertedLinks.innerHTML+=`<div style="color:#4ade80">⚡ ${done}/${files.length} ${files[i].name.slice(0,10)} → LINK!</div>`;
-        convertStatus.innerText=`⚡ ${done}/${files.length} KIDLAT DONE!`;
-      } else { convertedLinks.innerHTML+=`<div style="color:#f87171">❌ ${files[i].name}</div>`; }
+        lastConvertedLinks.push(link);
+        // AUTO FILL SA TEXTBOX - MARAMIHAN!
+        f_img.value=lastConvertedLinks.join('\n');
+        convertedLinks.innerHTML+=`<div style="color:#4ade80">⚡ ${done}/${files.length} ${files[i].name.slice(0,12)} → OK</div>`;
+        convertStatus.innerText=`⚡ ${done}/${files.length} AUTO FILL SA TEXTBOX!`;
+      } else throw 'fail';
       convertedLinks.scrollTop=convertedLinks.scrollHeight;
-      return link;
-    }).catch(()=>{ done++; progBar.style.width=Math.round((done/files.length)*100)+'%'; convertedLinks.innerHTML+=`<div style="color:#f87171">❌ ${files[i].name} fail</div>`; });
+    }).catch(()=>{
+      done++; progBar.style.width=Math.round((done/files.length)*100)+'%';
+      convertedLinks.innerHTML+=`<div style="color:#f87171">❌ ${files[i].name} fail - try ulit</div>`;
+    });
   });
   await Promise.all(promises);
-  convertStatus.innerText=`✅ KIDLAT DONE! ${done} pics → LINK! 0KB!`;
-  progBar.style.width='100%'; setTimeout(()=>{progWrap.style.display='none';progBar.style.width='0%';},2000);
+  convertStatus.innerText=`✅ ${lastConvertedLinks.length}/${files.length} LINKS NASA TEXTBOX NA!`;
+  progBar.style.width='100%'; setTimeout(()=>{progWrap.style.display='none';},2000);
   picConverter.value='';
 }
 function compressKidlat(file,q){ return new Promise(r=>{ let img=new Image(); let url=URL.createObjectURL(file); img.src=url; img.onload=()=>{ let c=document.createElement('canvas'); let max=350; c.width=max; c.height=max*img.height/img.width; c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',q); }; img.onerror=()=>{URL.revokeObjectURL(url); r(file);}; });}
-function saveTextOnly(){ if(!f_link.value||!f_img.value) return alert('Link required!'); products.push({id:Date.now(),link:f_link.value.trim(),img:f_img.value.trim(),brand:f_brand.value||'No Brand',desc:f_desc.value,price:f_price.value||'0',cat:f_cat.value||'Gadgets',rate:f_rate.value||'4.9'}); localStorage.setItem('boss_kaiyah_kidlat20',JSON.stringify(products)); if(tempUrl){URL.revokeObjectURL(tempUrl);tempUrl=null;} tempPreview.style.display='none'; f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; convertedLinks.innerHTML=''; scanStatus.innerText='✅ SAVED 0KB!'; convertStatus.innerText=''; renderSheet(); renderGrid(currentCat); }
-function delRow(id){ products=products.filter(p=>p.id!=id); localStorage.setItem('boss_kaiyah_kidlat20',JSON.stringify(products)); renderSheet(); renderGrid(currentCat); }
+
+// SAVE MARAMIHAN - 20 PRODUCTS SABAY!
+function saveMaramihan(){
+  if(!f_link.value) return alert('Affiliate Link required!');
+  let links=f_img.value.trim().split(/[\n,]+/).map(s=>s.trim()).filter(s=>s.startsWith('http'));
+  if(links.length===0) return alert('Wala pang Image Link sa textbox! Mag convert ka muna ng maramihan!');
+  // Kung maramihan links, gawa ng maramihan products!
+  links.forEach(link=>{
+    products.push({id:Date.now()+Math.random(),link:f_link.value.trim(),img:link,brand:f_brand.value||'No Brand',desc:f_desc.value,price:f_price.value||'0',cat:f_cat.value||'Gadgets',rate:f_rate.value||'4.9'});
+  });
+  localStorage.setItem('boss_kaiyah_maramihan',JSON.stringify(products));
+  f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; convertedLinks.innerHTML=''; lastConvertedLinks=[]; scanStatus.innerText=`✅ ${links.length} PRODUCTS SAVED SABAY! 0KB!`; convertStatus.innerText='';
+  renderSheet(); renderGrid(currentCat);
+}
+function delRow(id){ products=products.filter(p=>p.id!=id); localStorage.setItem('boss_kaiyah_maramihan',JSON.stringify(products)); renderSheet(); renderGrid(currentCat); }
 function renderSheet(){ document.querySelector('#sheet tbody').innerHTML=products.map(p=>`<tr><td>${p.img.slice(8,28)}...</td><td>${p.brand}<br><b style="color:#f5d0fe">₱${p.price}</b></td><td>${p.cat}</td><td><button onclick="delRow(${p.id})" style="background:red;color:#fff;border:0;padding:3px 6px;border-radius:5px">X</button></td></tr>`).join('')||'<tr><td colspan=4 style="text-align:center;padding:15px;color:#666">Wala pa</td></tr>'; }
 function renderGrid(f='all'){ currentCat=f; let list=f==='all'?products:products.filter(p=>p.cat===f); document.getElementById('grid').innerHTML=list.map(p=>`<div class="card"><img src="${p.img}" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Img'"><div style="font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand}</div><div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div><div class="price">₱${p.price} ★${p.rate}</div><a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a></div>`).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666">Empty ${f}<br><small style="color:#a855f7">10x tap logo</small></div>`; }
 function filterCat(c,b){ document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderGrid(c); }
