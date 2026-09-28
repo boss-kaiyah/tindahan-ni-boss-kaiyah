@@ -1,24 +1,23 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Boss Kaiyah V5 - No Flicker No Patong</title>
+<title>Boss Kaiyah V6.1 - Buo</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#0a0420;color:#fff;font-family:Arial;overflow-x:hidden}
-#logo{text-align:center;padding:14px;font-size:24px;font-weight:900;background:linear-gradient(90deg,#a855f7,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
-.filter{display:flex;gap:6px;padding:10px;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none}.filter::-webkit-scrollbar{display:none}.filter button{flex:0 0 auto;background:#16102e;color:#c084fc;border:1px solid #a855f7;padding:8px 14px;border-radius:20px;font-weight:800;font-size:11px}.filter button.active{background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.card{background:#16102e;border:1px solid #2a1a4a;border-radius:14px;padding:8px;overflow:hidden}.card img{width:100%;height:160px;object-fit:cover;border-radius:10px;background:#0f0828;display:block!important;min-height:160px}.card.info{padding-top:6px}.price{color:#f5d0fe;font-weight:900}.buy{display:block;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
+*{box-sizing:border-box}body{margin:0;background:#0a0420;color:#fff;font-family:Arial}
+#logo{text-align:center;padding:14px;font-size:22px;font-weight:900;background:linear-gradient(90deg,#a855f7,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
+.filter{display:flex;gap:6px;padding:10px;overflow-x:auto;white-space:nowrap}.filter::-webkit-scrollbar{display:none}.filter button{flex:0 0 auto;background:#16102e;color:#c084fc;border:1px solid #a855f7;padding:8px 14px;border-radius:20px;font-weight:800;font-size:11px}.filter button.active{background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.card{background:#16102e;border:1px solid #2a1a4a;border-radius:14px;padding:8px}.card img{width:100%;height:160px;object-fit:cover;border-radius:10px;background:#0f0828;display:block;min-height:160px}.price{color:#f5d0fe;font-weight:900}.buy{display:block;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
 #admin{display:none;margin:10px;background:#0f0828;border:2px solid #a855f7;border-radius:16px;padding:12px}
-.inp,.inp-area{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}.inp-area{min-height:70px}
+.inp,.inp-area{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}.inp-area{min-height:90px}
 .btn{width:100%;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;border:0;padding:11px;border-radius:10px;font-weight:900;margin:5px 0}.btn-small{width:auto;padding:6px 14px;font-size:11px}
-.progress{width:100%;height:8px;background:#1a1038;border-radius:4px;overflow:hidden;margin:6px 0;display:none}.progress-bar{height:100%;background:linear-gradient(90deg,#e879f9,#a855f7);width:0%}
+.progress{width:100%;height:8px;background:#1a1038;border-radius:4px;overflow:hidden;margin:6px 0;display:none}.progress-bar{height:100%;background:linear-gradient(90deg,#e879f9,#a855f7);width:0%;transition:width.2s}
 </style></head><body>
 
-<div id="logo">💜 BOSS KAIYAH<small style="display:block;font-size:9px;color:#c084fc;-webkit-text-fill-color:#c084fc">V5 NO FLICKER NO PATONG - TAP 10X</small></div>
-<div class="filter"><button class="active" onclick="filterCat('all',this)">ALL ✨</button><button onclick="filterCat('Motorcycle',this)">🏍️ Motor</button><button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button><button onclick="filterCat('Home Essentials',this)">🏠 Home</button><button onclick="filterCat('Fashion',this)">👗 Fashion</button><button onclick="filterCat('Beauty',this)">💄 Beauty</button></div>
+<div id="logo">💜 BOSS KAIYAH<small style="display:block;font-size:9px;color:#c084fc;-webkit-text-fill-color:#c084fc">V6.1 BUO - COMMA ERASE LAST - TAP 10X</small></div>
+<div class="filter"><button class="active" onclick="filterCat('all',this)">ALL ✨</button><button onclick="filterCat('Motorcycle',this)">🏍️ Motor</button><button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button><button onclick="filterCat('Home Essentials',this)">🏠 Home</button><button onclick="filterCat('Fashion',this)">👗 Fashion</button></div>
 <div class="grid" id="grid"></div>
 
 <div id="admin">
 <div style="background:#ff000022;border:1px solid red;border-radius:10px;padding:8px;text-align:center;margin-bottom:8px">
-<b style="color:#ff6b6b;font-size:11px">⚠️ MAY ITIM PA? CLICK MO TO!</b><br>
-<button class="btn btn-small" style="background:red" onclick="clearAll()">🗑️ BURAHIN LAHAT NG ITIM - LINIS!</button>
+<button class="btn btn-small" style="background:red" onclick="clearAll()">🗑️ BURAHIN LAHAT</button>
 </div>
 
 <div style="background:#16102e;border:1px dashed #a855f7;border-radius:10px;padding:10px;text-align:center">
@@ -26,20 +25,20 @@
 <input type="file" id="shopeeScan" accept="image/*" hidden onchange="scanOnly(event)">
 <button class="btn btn-small" onclick="shopeeScan.click()">📤 Scan Screenshot</button>
 <div id="scanStatus" style="font-size:10px;color:#a855f7;margin-top:4px"></div>
-<img id="tempPreview" style="width:100%;max-height:100px;display:none;margin-top:6px;border-radius:8px">
 </div>
 
 <div style="background:#1a1038;border:2px dashed #e879f9;border-radius:12px;padding:10px;text-align:center;margin-top:8px">
-<b style="color:#e879f9">⚡ CONVERT 1 PIC ONLY - NO FLICKER!</b><br>
-<input type="file" id="picConverter" accept="image/*" hidden onchange="convertFixed(event)">
-<button class="btn btn-small" style="background:linear-gradient(90deg,#e879f9,#a855f7)" onclick="picConverter.click()">⚡ PILI 1 PIC → LINK!</button>
+<b style="color:#e879f9">⚡ MARAMIHAN 20 - AUTO COMMA!</b><br>
+<input type="file" id="picConverter" accept="image/*" multiple hidden onchange="convertWithComma(event)">
+<button class="btn btn-small" style="background:linear-gradient(90deg,#e879f9,#a855f7)" onclick="picConverter.click()">⚡ PILI 20 PICS → AUTO COMMA!</button>
 <div class="progress" id="progWrap"><div class="progress-bar" id="progBar"></div></div>
 <div id="convertStatus" style="font-size:11px;color:#e879f9;font-weight:800;margin-top:4px"></div>
+<div id="convertedLinks" style="font-size:9px;text-align:left;max-height:80px;overflow:auto;background:#0a0420;border-radius:6px;padding:4px;margin-top:6px"></div>
 </div>
 
 <div style="margin-top:10px">
-<input id="f_link" class="inp" placeholder="Affiliate Link - s.shopee.com.ph/...">
-<input id="f_img" class="inp" placeholder="Image Link - https:// ONLY - wag base64!">
+<input id="f_link" class="inp" placeholder="Affiliate Link">
+<textarea id="f_img" class="inp-area" placeholder="Image Links - auto may comma! Ex: https://..., https://..."></textarea>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
 <input id="f_brand" class="inp" placeholder="Brand"><input id="f_price" class="inp" placeholder="Price">
 </div>
@@ -48,24 +47,55 @@
 <input id="f_cat" class="inp" placeholder="Category" list="cats"><datalist id="cats"><option value="Motorcycle"><option value="Gadgets"><option value="Home Essentials"><option value="Fashion"></datalist>
 <input id="f_rate" class="inp" placeholder="Rate 4.9">
 </div>
-<button class="btn" onclick="saveOne()">💾 SAVE ISA LANG!</button>
+<button class="btn" onclick="saveComma()">💾 SAVE - AUTO ERASE LAST COMMA!</button>
 </div>
 <button class="btn" style="background:#1a1038;border:1px solid #a855f7;margin-top:8px" onclick="closeAdmin()">CLOSE</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
 <script>
-let products=JSON.parse(localStorage.getItem('boss_kaiyah_v5')||'[]');
+let products=JSON.parse(localStorage.getItem('boss_kaiyah_v6')||'[]');
 products=products.filter(p=>p.img&&p.img.startsWith('http')&&!p.img.startsWith('data:'));
-localStorage.setItem('boss_kaiyah_v5',JSON.stringify(products));
-let tempUrl=null,currentCat='all',taps=0,timer;
+localStorage.setItem('boss_kaiyah_v6',JSON.stringify(products));
+let taps=0,timer,lastLinks=[];
 document.getElementById('logo').addEventListener('click',()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,3000);if(taps>=10){taps=0;if(prompt('Password:')==='kaiyah123'){admin.style.display='block';}}});
-function closeAdmin(){admin.style.display='none';renderGrid(currentCat);}
-function clearAll(){ if(confirm('Burahin lahat?')){ products=[]; localStorage.clear(); localStorage.setItem('boss_kaiyah_v5','[]'); renderGrid('all'); alert('Malinis na!'); location.reload(); } }
-async function scanOnly(e){ const file=e.target.files[0]; if(!file) return; if(tempUrl) URL.revokeObjectURL(tempUrl); tempUrl=URL.createObjectURL(file); tempPreview.src=tempUrl; tempPreview.style.display='block'; try{ const {data:{text}} = await Tesseract.recognize(file,'eng'); let price=text.match(/₱\s?([\d,]+\.?\d*)/); if(price) f_price.value=price[1].replace(/[,]/g,'').replace(/\.00$/,''); let lines=text.split('\n').map(l=>l.trim()).filter(l=>l.length>3); let brand=lines.find(l=>/mvr1|power pipe/i.test(l)); if(brand) f_brand.value=brand.substring(0,35); let desc=lines.filter(l=>/adjust|stainless|elbow|back|pressure|32mm/i.test(l)).join(' ').substring(0,120); if(desc) f_desc.value=desc; else f_desc.value='32mm Adjustable dB stainless elbow back pressure pipe'; if(/mvr1/i.test(text)) f_cat.value='Motorcycle'; scanStatus.innerText='✅ OK!'; setTimeout(()=>{if(tempUrl){URL.revokeObjectURL(tempUrl);tempUrl=null;}tempPreview.style.display='none';shopeeScan.value='';},2000);}catch{ scanStatus.innerText='Fail'; } }
-async function convertFixed(e){ let files=Array.from(e.target.files).slice(0,1); if(!files.length) return; progWrap.style.display='block'; progBar.style.width='30%'; const blob=await new Promise(r=>{ let img=new Image(); let url=URL.createObjectURL(files[0]); img.src=url; img.onload=()=>{ let c=document.createElement('canvas'); let max=800; c.width=max; c.height=max*img.height/img.width; c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',0.7); }; img.onerror=()=>{URL.revokeObjectURL(url); r(files[0]);}; }); progBar.style.width='60%'; async function upload(b,n){ const KEY='6d207e02198a847aa98d0a2a901485a5'; try{ let fd=new FormData(); fd.append('image',b); let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`,{method:'POST',body:fd}); let j=await r.json(); if(j.data?.url) return j.data.url; }catch{} try{ let fd=new FormData(); fd.append('file',b,n); let r=await fetch('https://0x0.st',{method:'POST',body:fd}); let t=await r.text(); if(t.startsWith('https://')) return t.trim(); }catch{} return null; } let link=await upload(blob, files[0].name); progBar.style.width='100%'; if(link&&link.startsWith('http')&&!link.startsWith('data:')){ f_img.value=link; convertStatus.innerText='✅ NASA TEXTBOX NA!'; }else{ convertStatus.innerText='❌ Fail - Chrome → shopee.com.ph → long press pic → Copy Image Address!'; } setTimeout(()=>{progWrap.style.display='none'; progBar.style.width='0%';},2000); picConverter.value=''; }
-function saveOne(){ if(!f_link.value) return alert('Affiliate Link required!'); let link=f_img.value.trim(); if(!link||!link.startsWith('http')||link.startsWith('data:')) return alert('Image Link dapat https:// lang!'); if(link.length>500) return alert('Link masyado mahaba (base64) - Shopee link gamitin!'); products.push({id:Date.now(),link:f_link.value.trim(),img:link,brand:f_brand.value||'MVR1 POWER PIPE',desc:f_desc.value||'32mm Adjustable dB stainless',price:f_price.value||'4500',cat:f_cat.value||'Motorcycle',rate:f_rate.value||'4.9'}); localStorage.setItem('boss_kaiyah_v5',JSON.stringify(products)); f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; renderGrid(currentCat); alert('Saved! No flicker!'); }
-function renderGrid(f='all'){ currentCat=f; let list=f==='all'?products:products.filter(p=>p.cat===f); document.getElementById('grid').innerHTML=list.map(p=>`<div class="card"><img src="${p.img}" loading="eager" onerror="this.src='https://via.placeholder.com/400x300/16102e/a855f7?text=MVR1'"><div class="info"><div style="font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand}</div><div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div><div class="price">₱${p.price} ★${p.rate}</div><a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a></div></div>`).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666">Wala pa - malinis na V5!</div>`; }
+function closeAdmin(){admin.style.display='none';renderGrid('all');}
+function clearAll(){ if(confirm('Burahin lahat?')){ products=[]; localStorage.setItem('boss_kaiyah_v6','[]'); renderGrid('all'); location.reload(); } }
+async function scanOnly(e){ const file=e.target.files[0]; if(!file) return; scanStatus.innerText='Scanning...'; try{ const {data:{text}} = await Tesseract.recognize(file,'eng'); let price=text.match(/₱\s?([\d,]+\.?\d*)/); if(price) f_price.value=price[1].replace(/[,]/g,'').replace(/\.00$/,''); let lines=text.split('\n').map(l=>l.trim()).filter(l=>l.length>3); let brand=lines.find(l=>/mvr1|power pipe/i.test(l)); if(brand) f_brand.value=brand.substring(0,35); let desc=lines.filter(l=>/adjust|stainless|elbow|back|pressure|32mm/i.test(l)).join(' ').substring(0,120); if(desc) f_desc.value=desc; else f_desc.value='32mm Adjustable dB stainless elbow back pressure pipe'; if(/mvr1/i.test(text)) f_cat.value='Motorcycle'; scanStatus.innerText='✅ OK!'; }catch{ scanStatus.innerText='Fail'; } }
+async function convertWithComma(e){
+  let files=Array.from(e.target.files); if(files.length>20){alert('20 max!'); files=files.slice(0,20);} if(!files.length) return;
+  progWrap.style.display='block'; convertedLinks.innerHTML=''; lastLinks=[]; let done=0;
+  convertStatus.innerText=`⚡ ${files.length} pics maramihan + comma...`; progBar.style.width='20%';
+  const blobs=await Promise.all(files.map(f=>compress(f,0.6))); progBar.style.width='40%';
+  async function upload(b,n){ const KEY='6d207e02198a847aa98d0a2a901485a5'; try{ let fd=new FormData(); fd.append('image',b); let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`,{method:'POST',body:fd}); let j=await r.json(); if(j.data?.url) return j.data.url; }catch{} try{ let fd=new FormData(); fd.append('file',b,n); let r=await fetch('https://0x0.st',{method:'POST',body:fd}); let t=await r.text(); if(t.startsWith('https://')) return t.trim(); }catch{} return null; }
+  for(let i=0;i<blobs.length;i++){
+    let link=await upload(blobs[i], files[i].name); done++; progBar.style.width=Math.round(40+(done/files.length)*60)+'%';
+    if(link&&link.startsWith('http')&&!link.startsWith('data:')){
+      lastLinks.push(link);
+      f_img.value=lastLinks.join(', ')+', '; // auto comma every 1 tapos - may last comma
+      convertedLinks.innerHTML+=`<div style="color:#4ade80">⚡ ${done}/${files.length} → OK</div>`;
+      convertStatus.innerText=`⚡ ${done}/${files.length} - COMMA ADDED!`;
+    }else{ convertedLinks.innerHTML+=`<div style="color:#f87171">❌ ${files[i].name} fail</div>`; }
+  }
+  convertStatus.innerText=`✅ ${lastLinks.length} LINKS WITH COMMA!`;
+  progBar.style.width='100%'; setTimeout(()=>{progWrap.style.display='none';},1500); picConverter.value='';
+}
+function compress(file,q){ return new Promise(r=>{ let img=new Image(); let url=URL.createObjectURL(file); img.src=url; img.onload=()=>{ let c=document.createElement('canvas'); let max=700; c.width=max; c.height=max*img.height/img.width; c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',q); }; img.onerror=()=>{URL.revokeObjectURL(url); r(file);}; });}
+function saveComma(){
+  if(!f_link.value) return alert('Affiliate Link required!');
+  let raw=f_img.value.trim(); if(!raw) return alert('Wala link!');
+  // ERASE LAST COMMA - ETO PINAKA IMPORTANTE!
+  raw=raw.replace(/,\s*$/,'').trim(); // burahin last comma sa dulo!
+  raw=raw.replace(/,\s*,/g,','); // burahin double comma
+  f_img.value=raw; // update textbox - wala na last comma
+  let links=raw.split(',').map(s=>s.trim()).filter(s=>s.startsWith('http')&&!s.startsWith('data:')&&s.length>10);
+  if(!links.length) return alert('Walang valid https link!');
+  links.forEach(link=>{ products.push({id:Date.now()+Math.random(),link:f_link.value.trim(),img:link,brand:f_brand.value||'MVR1 POWER PIPE',desc:f_desc.value||'32mm Adjustable dB stainless elbow',price:f_price.value||'4500',cat:f_cat.value||'Motorcycle',rate:f_rate.value||'4.9'}); });
+  localStorage.setItem('boss_kaiyah_v6',JSON.stringify(products));
+  f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; convertedLinks.innerHTML=''; lastLinks=[];
+  renderGrid('all'); alert(`${links.length} saved! Last comma erased!`);
+}
+function renderGrid(f='all'){ let list=f==='all'?products:products.filter(p=>p.cat===f); document.getElementById('grid').innerHTML=list.map(p=>`<div class="card"><img src="${p.img}" loading="eager" onerror="this.src='https://via.placeholder.com/400x300/16102e/a855f7?text=MVR1'"><div style="font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand}</div><div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div><div class="price">₱${p.price} ★${p.rate}</div><a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a></div>`).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666">Wala pa - V6.1 Buo!</div>`; }
 function filterCat(c,b){ document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderGrid(c); }
 renderGrid();
 </script></body></html>
