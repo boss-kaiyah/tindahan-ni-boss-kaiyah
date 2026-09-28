@@ -1,143 +1,127 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Boss Kaiyah - Purple Affiliate</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Boss Kaiyah - Text Only Save</title>
 <style>
 :root{--bg:#0a0420;--card:#16102e;--purple:#a855f7;--pink:#e879f9;--border:#2a1a4a}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:#fff;font-family:Inter,Arial,sans-serif}
-#logo{text-align:center;padding:18px 10px;font-size:28px;font-weight:900;letter-spacing:1px;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none;cursor:pointer}
-#logo small{display:block;font-size:10px;color:#c084fc;-webkit-text-fill-color:#c084fc;font-weight:700;letter-spacing:3px}
-.filter{display:flex;gap:8px;padding:12px;overflow-x:auto;scrollbar-width:none}
-.filter::-webkit-scrollbar{display:none}
-.filter button{flex:0 0 auto;background:var(--card);color:#c084fc;border:1px solid var(--purple);padding:9px 16px;border-radius:24px;font-weight:800;font-size:12px}
-.filter button.active{background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;border-color:transparent;box-shadow:0 0 12px var(--purple)}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:12px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:10px;position:relative;overflow:hidden}
-.card.red{border:2px solid #ff0033;box-shadow:0 0 12px #ff0033}
-.card img{width:100%;height:150px;object-fit:cover;border-radius:12px;background:#0f0828}
-.badge{position:absolute;top:10px;left:10px;background:#ff0033;color:#fff;font-size:9px;padding:3px 7px;border-radius:10px;font-weight:900;display:none}
-.card.red.badge{display:block}
-.card h4{margin:8px 0 2px;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.card p{margin:0;color:#9ca3af;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.price{color:#f5d0fe;font-weight:900;margin:6px 0;font-size:14px}
-.buy{display:block;text-align:center;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;text-decoration:none;padding:10px;border-radius:10px;font-weight:900;font-size:12px;margin-top:6px}
-.cat{font-size:9px;color:#c084fc;border:1px solid #2a1a4a;display:inline-block;padding:2px 6px;border-radius:10px;margin-top:4px}
-/* ADMIN - SARILI NATING SPREADSHEET */
-#admin{display:none;margin:12px;background:#0f0828;border:2px solid var(--purple);border-radius:18px;padding:14px;box-shadow:0 0 20px rgba(168,85,247,.4)}
-#admin h3{margin:0 0 10px;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff;font-family:Arial}
+#logo{text-align:center;padding:16px;font-size:26px;font-weight:900;background:linear-gradient(90deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;user-select:none}
+#logo small{display:block;font-size:9px;color:#c084fc;-webkit-text-fill-color:#c084fc;letter-spacing:2px}
+.filter{display:flex;gap:6px;padding:10px;overflow-x:auto}.filter button{flex:0 0 auto;background:var(--card);color:#c084fc;border:1px solid var(--purple);padding:8px 14px;border-radius:20px;font-weight:800;font-size:11px}.filter button.active{background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:8px}.card img{width:100%;height:140px;object-fit:cover;border-radius:10px;background:#0f0828}.price{color:#f5d0fe;font-weight:900;font-size:13px}.buy{display:block;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
+#admin{display:none;margin:10px;background:#0f0828;border:2px solid var(--purple);border-radius:16px;padding:12px;box-shadow:0 0 20px rgba(168,85,247,.3)}
 .inp{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}
-.btn{width:100%;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;border:0;padding:12px;border-radius:12px;font-weight:900;margin:6px 0}
-.btn-red{background:#ff0033;background-image:none}
-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
-th{background:#1a1038;padding:8px;text-align:left;color:#c084fc;position:sticky;top:0}
-td{border-bottom:1px solid #1e153d;padding:6px;vertical-align:middle}
-td[contenteditable]{background:#16102e;outline:1px solid var(--purple)}
-.sheet-img{width:36px;height:36px;border-radius:6px;object-fit:cover}
-</style>
-</head>
-<body>
+.btn{width:100%;background:linear-gradient(90deg,var(--purple),var(--pink));color:#fff;border:0;padding:11px;border-radius:10px;font-weight:900;margin:5px 0;font-size:12px}
+.btn-small{width:auto;padding:6px 14px;font-size:11px;display:inline-block}
+table{width:100%;border-collapse:collapse;font-size:11px}th{background:#1a1038;padding:6px;color:#c084fc;text-align:left}td{border-bottom:1px solid #1e153d;padding:5px;max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+</style></head><body>
 
-<div id="logo">💜 BOSS KAIYAH<small>TAP 10X FOR SECRET SHEET</small></div>
-
-<div class="filter" id="filterBar">
-<button class="active" onclick="filterCat('all',this)">ALL ✨</button>
-<button onclick="filterCat('Home Essentials',this)">🏠 Home</button>
-<button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button>
-<button onclick="filterCat('Fashion',this)">👗 Fashion</button>
-<button onclick="filterCat('Beauty',this)">💄 Beauty</button>
-</div>
-
+<div id="logo">💜 BOSS KAIYAH<small>TAP 10X - TEXT ONLY SAVE - DI PUNO STORAGE</small></div>
+<div class="filter" id="filterBar"><button class="active" onclick="filterCat('all',this)">ALL ✨</button><button onclick="filterCat('Home Essentials',this)">🏠 Home</button><button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button><button onclick="filterCat('Motorcycle',this)">🏍️ Motor</button><button onclick="filterCat('Fashion',this)">👗 Fashion</button></div>
 <div class="grid" id="grid"></div>
 
-<!-- SARILI NATING SPREADSHEET ADMIN -->
 <div id="admin">
-<h3>🔑 MY SPREADSHEET - Sarili Natin (Purple)</h3>
-<input id="f_link" class="inp" placeholder="Affiliate Link - s.shopee.com.ph/...">
-<input id="f_img" class="inp" placeholder="Image Link - https://...jpg">
+<h3 style="margin:0 0 10px;color:#c084fc;font-size:14px">🔑 SECRET SPREADSHEET - TEXT ONLY (Matalino!)</h3>
+
+<!-- SCAN TEXT ONLY -->
+<div style="background:#16102e;border:1px dashed #a855f7;border-radius:10px;padding:10px;text-align:center">
+<div style="font-size:12px;font-weight:900;color:#c084fc">📸 1. SCAN SHOPEE SCREENSHOT - TEXT LANG KUKUNIN, PIC DELETE!</div>
+<small style="color:#888;font-size:10px">Upload mo tulad nung MVR1, auto-fill Price/Brand</small><br>
+<input type="file" id="shopeeScan" accept="image/*" hidden onchange="scanOnly(event)">
+<button class="btn btn-small" onclick="shopeeScan.click()">📤 Scan Screenshot</button>
+<div id="scanStatus" style="font-size:10px;color:#a855f7;margin-top:4px"></div>
+<img id="tempPreview" style="width:100%;max-height:120px;object-fit:contain;display:none;margin-top:6px;border-radius:8px">
+</div>
+
+<!-- CONVERT PIC TO LINK -->
+<div style="background:#1a1038;border:1px dashed #e879f9;border-radius:10px;padding:10px;text-align:center;margin-top:8px">
+<div style="font-size:12px;font-weight:900;color:#e879f9">🖼️ 2. CONVERT PICTURE TO LINK - PARANG POSTIMAGE!</div>
+<small style="color:#888;font-size:10px">Kahit 100 pics, LINK lang ma-save, pic delete!</small><br>
+<input type="file" id="picConverter" accept="image/*" multiple hidden onchange="convertToLink(event)">
+<button class="btn btn-small" style="background:linear-gradient(90deg,#e879f9,#a855f7)" onclick="picConverter.click()">🔗 Pic → Link</button>
+<div id="convertStatus" style="font-size:10px;color:#e879f9;margin-top:4px"></div>
+<div id="convertedLinks" style="font-size:9px;text-align:left;max-height:60px;overflow:auto"></div>
+</div>
+
+<!-- TEXT FIELDS ONLY -->
+<div style="margin-top:10px">
+<input id="f_link" class="inp" placeholder="Affiliate Link TEXT - s.shopee.com.ph/...">
+<input id="f_img" class="inp" placeholder="Image Link TEXT - https://...jpg (LINK lang!)">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-<input id="f_brand" class="inp" placeholder="Brand">
-<input id="f_price" class="inp" placeholder="Price - 599">
+<input id="f_brand" class="inp" placeholder="Brand - auto scan">
+<input id="f_price" class="inp" placeholder="Price - auto scan">
 </div>
-<input id="f_desc" class="inp" placeholder="Description - Short only">
+<input id="f_desc" class="inp" placeholder="Description - auto scan">
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
-<input id="f_cat" class="inp" placeholder="Category - Home Essentials" list="cats">
-<datalist id="cats"><option value="Home Essentials"><option value="Gadgets"><option value="Fashion"><option value="Beauty"></datalist>
-<input id="f_rate" class="inp" placeholder="Rate - 4.9 (optional)">
+<input id="f_cat" class="inp" placeholder="Category" list="cats"><datalist id="cats"><option value="Home Essentials"><option value="Gadgets"><option value="Motorcycle"><option value="Fashion"><option value="Beauty"></datalist>
+<input id="f_rate" class="inp" placeholder="Rate 4.9">
 </div>
-<button class="btn" onclick="addRow()">+ ADD ROW TO MY SHEET</button>
-
-<div style="overflow-x:auto;max-height:320px;overflow-y:auto;border:1px solid #2a1a4a;border-radius:10px">
-<table id="sheet"><thead><tr><th>Img</th><th>Brand/Price</th><th>Cat</th><th>Status</th><th>X</th></tr></thead><tbody></tbody></table>
+<button class="btn" onclick="saveTextOnly()">💾 SAVE TEXT ONLY + DELETE ALL PICS</button>
+<small style="color:#ff6b6b;font-size:9px;display:block;text-align:center">⚠️ Pag SAVE, TEXT at LINK lang ma-save - lahat ng picture burado - 0KB!</small>
 </div>
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-<button class="btn" style="background:#1a1038;border:1px solid var(--purple)" onclick="exportData()">⬇️ Export</button>
-<button class="btn" style="background:#1a1038;border:1px solid var(--purple)" onclick="document.getElementById('importFile').click()">⬆️ Import</button>
+<div style="overflow-x:auto;max-height:200px;border:1px solid #2a1a4a;border-radius:10px;margin-top:10px">
+<table id="sheet"><thead><tr><th>Link</th><th>Brand/Price</th><th>Cat</th><th>X</th></tr></thead><tbody></tbody></table>
 </div>
-<input type="file" id="importFile" hidden onchange="importData(event)">
-<div style="font-size:10px;color:#6b7280;margin-top:8px">💡 Click cell to edit parang Excel. Auto-save. 🟢 OK / 🔴 EXPIRED auto-detect.</div>
-<button class="btn btn-red" onclick="closeAdmin()">CLOSE ADMIN</button>
+<button class="btn" style="background:#1a1038;border:1px solid var(--purple);margin-top:8px" onclick="closeAdmin()">CLOSE ADMIN</button>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
 <script>
-let products = JSON.parse(localStorage.getItem('boss_kaiyah_sheet')||'[]');
-
-// 10 TAP LOGO + PASSWORD
-let taps=0, timer;
-const logoEl=document.getElementById('logo');
-logoEl.addEventListener('click',()=>{
-  taps++; clearTimeout(timer); timer=setTimeout(()=>taps=0,2000);
-  if(taps>=10){
-    let p=prompt('🔑 Enter Password:');
-    if(p==='kaiyah123'){ document.getElementById('admin').style.display='block'; renderSheet(); window.scrollTo(0,0); }
-    else alert('❌ Wrong password!'); taps=0;
-  }
+let products=JSON.parse(localStorage.getItem('boss_kaiyah_textonly')||'[]');
+let tempUrl=null; let currentCat='all';
+let taps=0,timer;
+document.getElementById('logo').addEventListener('click',()=>{
+  taps++; clearTimeout(timer); timer=setTimeout(()=>taps=0,3000);
+  if(taps>=10){ taps=0; if(prompt('Password:')==='kaiyah123'){ admin.style.display='block'; renderSheet(); window.scrollTo(0,0);} }
 });
-function closeAdmin(){ document.getElementById('admin').style.display='none'; renderGrid(currentCat); }
-let currentCat='all';
 
-function addRow(){
-  if(!f_link.value ||!f_img.value) return alert('Link at Image required Parekoy!');
-  products.push({id:Date.now(), link:f_link.value.trim(), img:f_img.value.trim(), brand:f_brand.value.trim()||'No Brand', desc:f_desc.value.trim(), price:f_price.value.trim()||'0', cat:f_cat.value.trim()||'Home Essentials', rate:f_rate.value.trim()||'4.9'});
-  localStorage.setItem('boss_kaiyah_sheet',JSON.stringify(products));
-  f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; renderSheet(); renderGrid(currentCat);
-}
-function delRow(id){ if(confirm('Delete this row?')){ products=products.filter(p=>p.id!=id); localStorage.setItem('boss_kaiyah_sheet',JSON.stringify(products)); renderSheet(); renderGrid(currentCat); }}
-function editCell(id,key,el){ let v=el.innerText.trim(); let p=products.find(x=>x.id==id); if(p){ p[key]=v; localStorage.setItem('boss_kaiyah_sheet',JSON.stringify(products)); renderGrid(currentCat); }}
+function closeAdmin(){ admin.style.display='none'; renderGrid(currentCat); }
 
-function renderSheet(){
-  const tbody=document.querySelector('#sheet tbody');
-  tbody.innerHTML = products.map(p=>`
-    <tr>
-      <td><img src="${p.img}" class="sheet-img" onerror="this.style.border='2px solid red'"></td>
-      <td><div contenteditable onblur="editCell(${p.id},'brand',this)" style="font-weight:800">${p.brand}</div><div contenteditable onblur="editCell(${p.id},'price',this)" style="color:#f5d0fe">₱${p.price}</div></td>
-      <td contenteditable onblur="editCell(${p.id},'cat',this)">${p.cat}</td>
-      <td id="st-${p.id}">Checking...</td>
-      <td><button onclick="delRow(${p.id})" style="background:#ff0033;color:#fff;border:0;padding:5px 8px;border-radius:6px">X</button></td>
-    </tr>`).join('') || '<tr><td colspan=5 style="text-align:center;padding:20px;color:#666">Wala pa laman - Add ka muna</td></tr>';
-  products.forEach(p=>{ let img=new Image(); img.onload=()=>{ let e=document.getElementById('st-'+p.id); if(e) e.innerHTML='🟢 OK'; }; img.onerror=()=>{ let e=document.getElementById('st-'+p.id); if(e) e.innerHTML='🔴 EXPIRED'; }; img.src=p.img; });
+// SCAN TEXT ONLY - DELETE PIC AFTER
+async function scanOnly(e){
+  const file=e.target.files[0]; if(!file) return;
+  if(tempUrl) URL.revokeObjectURL(tempUrl); tempUrl=URL.createObjectURL(file);
+  tempPreview.src=tempUrl; tempPreview.style.display='block'; scanStatus.innerText='🔍 Scanning MVR1 sample mo...';
+  try{
+    const {data:{text}} = await Tesseract.recognize(file,'eng');
+    let price=text.match(/₱\s?([\d,]+\.?\d*)/); if(price) f_price.value=price[1].replace(/,/g,'');
+    let brand=text.match(/MVR1[^\n]+|Power Pipe[^\n]+/i); if(brand) f_brand.value=brand[0].substring(0,35);
+    else f_brand.value=text.split('\n').filter(l=>l.length>4)[0]?.substring(0,30)||'';
+    let desc=text.match(/Adjustable[^\n]+|stainless[^\n]+/i); if(desc) f_desc.value=desc[0].substring(0,60);
+    let rate=text.match(/4\.\d/); if(rate) f_rate.value=rate[0];
+    if(text.toLowerCase().includes('sniper')||text.toLowerCase().includes('mvr1')) f_cat.value='Motorcycle';
+    scanStatus.innerText='✅ Text scanned! Pic auto-delete in 3 sec - TEXT lang natira!';
+    setTimeout(()=>{ if(tempUrl){URL.revokeObjectURL(tempUrl);tempUrl=null;} tempPreview.style.display='none'; shopeeScan.value=''; },3000);
+  }catch{ scanStatus.innerText='Error scan'; }
 }
 
-function renderGrid(filter='all'){
-  currentCat=filter;
-  let list = filter==='all'?products:products.filter(p=>p.cat===filter);
-  document.getElementById('grid').innerHTML = list.map(p=>`
-    <div class="card" id="card-${p.id}">
-      <span class="badge">EXPIRED</span>
-      <img src="${p.img}" loading="lazy" onerror="this.closest('.card').classList.add('red')">
-      <h4>${p.brand}</h4><p>${p.desc||p.cat}</p>
-      <div class="price">₱${p.price} <small style="color:#c084fc">★${p.rate}</small></div>
-      <span class="cat">${p.cat}</span>
-      <a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a>
-    </div>`).join('') || `<div style="grid-column:1/3;text-align:center;padding:40px;color:#6b7280"><div style="font-size:40px">📦</div>Wala pa laman sa ${filter}<br><small style="color:#c084fc">Tap logo 10x → Add products</small></div>`;
+// CONVERT PIC TO LINK - TEXT ONLY SAVE!
+async function convertToLink(e){
+  const files=e.target.files; if(!files.length) return;
+  convertStatus.innerText=`⏳ Converting ${files.length} pics to LINK...`; convertedLinks.innerHTML='';
+  for(let file of files){
+    let blob=await compressImage(file,0.6);
+    let form=new FormData(); form.append('reqtype','fileupload'); form.append('fileToUpload',blob,file.name);
+    try{
+      let res=await fetch('https://catbox.moe/user/api.php',{method:'POST',body:form});
+      let link=await res.text();
+      if(link.startsWith('https://')){ f_img.value=link; convertedLinks.innerHTML+=`<div style="color:#4ade80">✅ ${file.name.substring(0,15)} → LINK: ${link.substring(0,25)}...</div>`; }
+    }catch{ convertedLinks.innerHTML+=`<div style="color:#fbbf24">⚠️ ${file.name} - Upload failed, try postimages.org</div>`; }
+  }
+  convertStatus.innerText='✅ DONE! LINK lang na-save! Pic deleted! 0KB!';
+  picConverter.value='';
 }
-function filterCat(c,btn){ document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); renderGrid(c); }
-
-function exportData(){ let data=JSON.stringify(products); let a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([data],{type:'application/json'})); a.download='boss-kaiyah-backup.json'; a.click(); }
-function importData(e){ let r=new FileReader(); r.onload=()=>{ try{ let d=JSON.parse(r.result); if(Array.isArray(d)){ products=d; localStorage.setItem('boss_kaiyah_sheet',JSON.stringify(products)); renderSheet(); renderGrid(currentCat); alert('✅ Imported '+d.length+' products!'); } }catch{ alert('Invalid file'); } }; r.readAsText(e.target.files[0]); }
-
+function compressImage(file,q){ return new Promise(r=>{ let img=new Image(); img.src=URL.createObjectURL(file); img.onload=()=>{ let c=document.createElement('canvas'); c.width=500; c.height=500*img.height/img.width; c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>{r(b); URL.revokeObjectURL(img.src);},'image/jpeg',q); }; }); }
+function saveTextOnly(){
+  if(!f_link.value||!f_img.value) return alert('Affiliate Link TEXT at Image Link TEXT required Parekoy!');
+  products.push({id:Date.now(), link:f_link.value.trim(), img:f_img.value.trim(), brand:f_brand.value||'No Brand', desc:f_desc.value, price:f_price.value||'0', cat:f_cat.value||'Gadgets', rate:f_rate.value||'4.9'});
+  localStorage.setItem('boss_kaiyah_textonly',JSON.stringify(products));
+  if(tempUrl){URL.revokeObjectURL(tempUrl);tempUrl=null;} tempPreview.style.display='none'; shopeeScan.value=''; picConverter.value=''; scanStatus.innerText='✅ TEXT ONLY SAVED! All pics deleted!'; convertStatus.innerText='';
+  f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; convertedLinks.innerHTML='';
+  renderSheet(); renderGrid(currentCat);
+}
+function delRow(id){ products=products.filter(p=>p.id!=id); localStorage.setItem('boss_kaiyah_textonly',JSON.stringify(products)); renderSheet(); renderGrid(currentCat); }
+function renderSheet(){ document.querySelector('#sheet tbody').innerHTML=products.map(p=>`<tr><td title="${p.img}">${p.img.substring(8,28)}...</td><td>${p.brand}<br><b style="color:#f5d0fe">₱${p.price}</b></td><td>${p.cat}</td><td><button onclick="delRow(${p.id})" style="background:red;color:#fff;border:0;padding:3px 6px;border-radius:5px">X</button></td></tr>`).join('')||'<tr><td colspan=4 style="text-align:center;padding:15px;color:#666">Wala pa - Scan ka na!</td></tr>'; }
+function renderGrid(f='all'){ currentCat=f; let list=f==='all'?products:products.filter(p=>p.cat===f); document.getElementById('grid').innerHTML=list.map(p=>`<div class="card"><img src="${p.img}" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=No+Img'"><div style="font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand}</div><div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div><div class="price">₱${p.price} ★${p.rate}</div><a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a></div>`).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666"><div style="font-size:30px">📦</div>No products in ${f}<br><small style="color:#a855f7">10x tap logo → Scan MVR1 mo!</small></div>`; }
+function filterCat(c,b){ document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderGrid(c); }
 renderGrid();
-</script>
-</body>
-</html>
+</script></body></html>
