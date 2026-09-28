@@ -1,69 +1,70 @@
 <!DOCTYPE html>
-<html lang="tl">
+<html>
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tindahan ni Boss Kaiyah</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tindahan ni Boss Kaiyah - FINAL</title>
 <style>
-:root{--p:#a855f7;--p2:#6d28d9;--p3:#2a0a4a;--bg:#faf5ff;--card:#ffffff}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,Arial}
-body{background:var(--bg);color:#1e1b4b}
-.header{background:linear-gradient(90deg,#2a0a4a,#6d28d9);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 4px 15px rgba(109,40,217,.3)}
-.logo-wrap{display:flex;align-items:center;gap:10px}
-.logo-img{width:44px;height:44px;border-radius:50%;border:2px solid #e9d5ff;object-fit:cover;box-shadow:0 0 12px #a855f7}
-.logo-text{font-weight:900;color:#fff;font-size:13px;line-height:.95;letter-spacing:.5px} .logo-text span{color:#e9d5ff;font-size:10px}
-.cart{color:#fff;font-weight:800;background:rgba(255,255,255,.15);padding:6px 12px;border-radius:20px}
-.banner{background:linear-gradient(110deg,#1e0a3c 0%,#6d28d9 50%,#a855f7 100%);color:#fff;padding:20px;text-align:center}
-.banner h2{font-size:22px;font-weight:900;text-shadow:0 0 10px rgba(168,85,247,.8)} .banner p{font-size:12px;opacity:.9;margin-top:4px;color:#e9d5ff}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;border-bottom:2px solid #f3e8ff;position:sticky;top:64px;z-index:10} .cats::-webkit-scrollbar{display:none}
-.catBtn{white-space:nowrap;padding:9px 16px;border-radius:20px;border:1.5px solid #d8b4fe;background:#faf5ff;color:var(--p2);font-weight:700;font-size:11px;cursor:pointer;transition:.2s}
-.catBtn.active,.catBtn:hover{background:linear-gradient(90deg,#6d28d9,#a855f7);color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(109,40,217,.3)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px} @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:var(--card);border-radius:16px;padding:12px;box-shadow:0 2px 12px rgba(109,40,217,.08);border:1px solid #f3e8ff;transition:.2s}
-.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(109,40,217,.15);border-color:#d8b4fe}
-.card-img{font-size:42px;margin:8px 0;text-align:center} .name{font-size:11px;font-weight:700;min-height:30px;color:#1e1b4b;text-align:left} .type{font-size:9px;color:#a78bfa;text-align:left;margin-top:2px} .price{color:var(--p2);font-weight:900;text-align:left;margin-top:4px}
-.buy{margin-top:8px;background:linear-gradient(90deg,#6d28d9,#a855f7);color:#fff;border:none;padding:8px;border-radius:20px;font-weight:800;width:100%;font-size:11px;box-shadow:0 2px 8px rgba(109,40,217,.3)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0b0218;color:#fff}
+.h{background:#1a0b2e;padding:15px;text-align:center;border-bottom:3px solid #a855f7}
+.h h1{color:#d8b4fe}
+.box{background:#1e1035;margin:12px;padding:12px;border-radius:12px;border:2px dashed #a855f7}
+input{width:100%;padding:11px;margin:5px 0;border-radius:8px;border:1px solid #a855f7;background:#0f041f;color:#fff}
+button{width:100%;padding:12px;background:linear-gradient(90deg,#a855f7,#ec4899);border:0;border-radius:10px;color:#fff;font-weight:900;cursor:pointer;margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:12px}
+.card{background:#14082a;border:1px solid #3b2a6b;border-radius:12px;overflow:hidden}
+.card img{width:100%;height:140px;object-fit:cover}
+.card div{padding:8px}
+.pr{color:#facc15;font-weight:900;font-size:18px}
+.buy{display:block;margin-top:6px;padding:8px;background:#f97316;color:#fff;text-align:center;border-radius:8px;text-decoration:none;font-weight:900}
 </style>
 </head>
 <body>
-<div class="header">
-<div class="logo-wrap">
-<img src="logo.png" class="logo-img" onerror="this.style.background='radial-gradient(circle,#a855f7,#2a0a4a)';this.alt='BK'">
-<div class="logo-text">TINDAHAN<br>NI BOSS KAIYAH</div>
+<div class="h">
+<h1>💜 Tindahan ni Boss Kaiyah - UNLI FINAL</h1>
+<p style="color:#c4b5fd;font-size:12px">Paste mo lang - UNLI products na!</p>
 </div>
-<div class="cart">🛒 <span id="cnt">0</span></div>
+
+<div class="box">
+<h3 style="color:#d8b4fe">📦 ADD PRODUCT (2 SECONDS LANG!)</h3>
+<input id="name" placeholder="Name: ex Logitech G203">
+<input id="price" placeholder="Price: ex 1099">
+<input id="img" placeholder="Image Link: (right click image sa Shopee > Copy Image Link)">
+<input id="link" placeholder="Affiliate Link mo: s.shopee.com.ph/xxxx - DITO KITA 3.5%">
+<button onclick="add()">+ ADD TO STORE</button>
+<p style="font-size:10px;color:#888;margin-top:6px">Paano kunin image: Open Shopee product > Right click sa picture > Copy Image Address > Paste dito</p>
 </div>
-<div class="banner">
-<h2>Tindahan ni Boss Kaiyah 💜</h2>
-<p>Lahat ng hanap mo nandito - Tech, Gadget, Damit, Motor!</p>
-</div>
-<div class="cats" id="catBar"></div>
+
 <div id="grid" class="grid"></div>
+
 <script>
-const cats=["All","Tech Parts & Accessories","Gadget","Appliances","Clothes","Bag","School Supply","Motorcycle Accessories","Beauty","Home & Living"];
-const prods=[
-{id:1,name:'Mechanical Keyboard RGB',cat:'Tech Parts & Accessories',price:799,img:'⌨️'},
-{id:2,name:'Gaming Mouse RGB',cat:'Tech Parts & Accessories',price:299,img:'🖱️'},
-{id:3,name:'SSD 512GB NVMe',cat:'Tech Parts & Accessories',price:1999,img:'💾'},
-{id:4,name:'Powerbank 20000mAh',cat:'Gadget',price:599,img:'🔋'},
-{id:5,name:'Earbuds TWS Pro',cat:'Gadget',price:399,img:'🎧'},
-{id:6,name:'Phone Holder Motorcycle',cat:'Motorcycle Accessories',price:149,img:'🏍️'},
-{id:7,name:'Mini Fan Rechargeable',cat:'Appliances',price:349,img:'🌀'},
-{id:8,name:'Rice Cooker 1.8L',cat:'Appliances',price:899,img:'🍚'},
-{id:9,name:'Oversized T-Shirt Unisex',cat:'Clothes',price:249,img:'👕'},
-{id:10,name:'Cargo Shorts 6 Pocket',cat:'Clothes',price:299,img:'🩳'},
-{id:11,name:'Sling Bag Waterproof',cat:'Bag',price:199,img:'👜'},
-{id:12,name:'Backpack School',cat:'Bag',price:399,img:'🎒'},
-{id:13,name:'Notebook Set 6pcs',cat:'School Supply',price:129,img:'📓'},
-{id:14,name:'Gel Pen 12 Colors',cat:'School Supply',price:89,img:'🖊️'},
-{id:15,name:'Helmet Visor Clear',cat:'Motorcycle Accessories',price:199,img:'🪖'},
-];
-let active='All';let cart=JSON.parse(localStorage.getItem('bkE')||'[]');
-function renderCats(){document.getElementById('catBar').innerHTML=cats.map(c=>`<button class="catBtn ${active==c?'active':''}" onclick="filterCat('${c}')">${c}</button>`).join('');}
-function renderGrid(){let f=active=='All'?prods:prods.filter(p=>p.cat==active);document.getElementById('grid').innerHTML=f.map(p=>`<div class="card"><div class="card-img">${p.img}</div><div class="name">${p.name}</div><div class="type">${p.cat}</div><div class="price">₱${p.price}</div><button class="buy" onclick="add(${p.id})">Add to Cart</button></div>`).join('');upd();}
-function filterCat(c){active=c;renderCats();renderGrid();}
-function add(id){let pr=prods.find(x=>x.id==id);let fn=cart.find(x=>x.id==id);if(fn)fn.q++;else cart.push({...pr,q:1});localStorage.setItem('bkE',JSON.stringify(cart));upd();alert('💜 '+pr.name+' added!');}
-function upd(){document.getElementById('cnt').innerText=cart.reduce((a,b)=>a+b.q,0);}
-renderCats();renderGrid();
+let p=JSON.parse(localStorage.getItem('kaiyah_final2')||'[]');
+function save(){localStorage.setItem('kaiyah_final2',JSON.stringify(p));render()}
+function add(){
+ const n=document.getElementById('name').value;
+ const pr=document.getElementById('price').value;
+ const im=document.getElementById('img').value;
+ const li=document.getElementById('link').value;
+ if(!n||!pr||!li){alert('Lagay mo name, price, at affiliate link Parekoy!');return}
+ p.unshift({name:n,price:pr,image:im||'https://via.placeholder.com/300/a855f7/fff?text='+encodeURIComponent(n),link:li});
+ document.getElementById('name').value='';document.getElementById('price').value='';document.getElementById('img').value='';document.getElementById('link').value='';
+ save();
+}
+function render(){
+ document.getElementById('grid').innerHTML=p.length?p.map((x,i)=>`
+  <div class="card">
+   <img src="${x.image}">
+   <div>
+    <b style="font-size:12px">${x.name}</b>
+    <div class="pr">₱${x.price}</div>
+    <div style="font-size:10px;color:#a78bfa">3.5% = ₱${(x.price*0.035).toFixed(2)} kita</div>
+    <a href="${x.link}" target="_blank" class="buy">Buy 🛒</a>
+    <button onclick="p.splice(${i},1);save()" style="width:100%;margin-top:4px;background:#222;color:#666;border:0;padding:4px;border-radius:5px;font-size:10px">Delete</button>
+   </div>
+  </div>`).join(''):`<div style="grid-column:1/-1;padding:40px;text-align:center;color:#6b7280">Wala pa laman - Add ka na ng unang product sa taas!<br><br>💡 Tip: 10 products x ₱38 = ₱380/day na kahit wala ka ginagawa!</div>`;
+}
+render();
 </script>
 </body>
 </html>
