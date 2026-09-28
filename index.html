@@ -4,65 +4,64 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tindahan ni Boss Kaiyah</title>
 <style>
-:root{--p:#9d5cf7;--p2:#5a189a;--bg:#fbf5ff}
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial}
-body{background:var(--bg)}
-.header{background:#fff;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+:root{--p:#a855f7;--p2:#6d28d9;--p3:#2a0a4a;--bg:#faf5ff;--card:#ffffff}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,Arial}
+body{background:var(--bg);color:#1e1b4b}
+.header{background:linear-gradient(90deg,#2a0a4a,#6d28d9);padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20;box-shadow:0 4px 15px rgba(109,40,217,.3)}
 .logo-wrap{display:flex;align-items:center;gap:10px}
-.logo-img{width:44px;height:44px;background:radial-gradient(circle at center,#9d5cf7,#5a189a);border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:18px;box-shadow:0 0 10px #9d5cf7}
-.logo-text{font-weight:900;color:var(--p2);font-size:14px;line-height:.9} .logo-text span{color:var(--p);font-size:11px;letter-spacing:1px}
-.hero{background:linear-gradient(110deg,#1a0540,#7e3aed 55%,#d8b4fe);color:#fff;padding:22px 16px;text-align:center}
-.hero h1{font-size:24px;font-weight:900} .hero p{opacity:.9;margin-top:4px;font-size:12px}
-.cats{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;position:sticky;top:64px;z-index:9} .cats::-webkit-scrollbar{display:none}
-.catBtn{white-space:nowrap;padding:9px 14px;border-radius:22px;border:2px solid var(--p);background:#fff;color:var(--p2);font-weight:800;font-size:11px;cursor:pointer}
-.catBtn.active{background:var(--p);color:#fff}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px} @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
-.card{background:#fff;border-radius:14px;padding:10px;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-.card-img{font-size:40px;text-align:center;margin:8px 0} .name{font-size:11px;font-weight:700;min-height:28px} .price{color:var(--p2);font-weight:900;font-size:13px} .type{font-size:9px;color:#888}
-.buy{margin-top:6px;background:var(--p);color:#fff;border:none;padding:7px;border-radius:20px;font-weight:800;width:100%;font-size:11px}
+.logo-img{width:44px;height:44px;border-radius:50%;border:2px solid #e9d5ff;object-fit:cover;box-shadow:0 0 12px #a855f7}
+.logo-text{font-weight:900;color:#fff;font-size:13px;line-height:.95;letter-spacing:.5px} .logo-text span{color:#e9d5ff;font-size:10px}
+.cart{color:#fff;font-weight:800;background:rgba(255,255,255,.15);padding:6px 12px;border-radius:20px}
+.banner{background:linear-gradient(110deg,#1e0a3c 0%,#6d28d9 50%,#a855f7 100%);color:#fff;padding:20px;text-align:center}
+.banner h2{font-size:22px;font-weight:900;text-shadow:0 0 10px rgba(168,85,247,.8)} .banner p{font-size:12px;opacity:.9;margin-top:4px;color:#e9d5ff}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:12px;background:#fff;border-bottom:2px solid #f3e8ff;position:sticky;top:64px;z-index:10} .cats::-webkit-scrollbar{display:none}
+.catBtn{white-space:nowrap;padding:9px 16px;border-radius:20px;border:1.5px solid #d8b4fe;background:#faf5ff;color:var(--p2);font-weight:700;font-size:11px;cursor:pointer;transition:.2s}
+.catBtn.active,.catBtn:hover{background:linear-gradient(90deg,#6d28d9,#a855f7);color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(109,40,217,.3)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:14px} @media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--card);border-radius:16px;padding:12px;box-shadow:0 2px 12px rgba(109,40,217,.08);border:1px solid #f3e8ff;transition:.2s}
+.card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(109,40,217,.15);border-color:#d8b4fe}
+.card-img{font-size:42px;margin:8px 0;text-align:center} .name{font-size:11px;font-weight:700;min-height:30px;color:#1e1b4b;text-align:left} .type{font-size:9px;color:#a78bfa;text-align:left;margin-top:2px} .price{color:var(--p2);font-weight:900;text-align:left;margin-top:4px}
+.buy{margin-top:8px;background:linear-gradient(90deg,#6d28d9,#a855f7);color:#fff;border:none;padding:8px;border-radius:20px;font-weight:800;width:100%;font-size:11px;box-shadow:0 2px 8px rgba(109,40,217,.3)}
 </style>
 </head>
 <body>
 <div class="header">
 <div class="logo-wrap">
-<div class="logo-img">BK</div>
+<img src="logo.png" class="logo-img" onerror="this.style.background='radial-gradient(circle,#a855f7,#2a0a4a)';this.alt='BK'">
 <div class="logo-text">TINDAHAN<br>NI BOSS KAIYAH</div>
 </div>
-<div>🛒 <b id="cnt">0</b></div>
+<div class="cart">🛒 <span id="cnt">0</span></div>
 </div>
-
-<div class="hero">
-<h1>Tindahan ni Boss Kaiyah</h1>
-<p>Lahat ng hanap mo nandito - Tech, Gadget, Damit, Motor atbp!</p>
+<div class="banner">
+<h2>Tindahan ni Boss Kaiyah 💜</h2>
+<p>Lahat ng hanap mo nandito - Tech, Gadget, Damit, Motor!</p>
 </div>
-
 <div class="cats" id="catBar"></div>
 <div id="grid" class="grid"></div>
-
 <script>
 const cats=["All","Tech Parts & Accessories","Gadget","Appliances","Clothes","Bag","School Supply","Motorcycle Accessories","Beauty","Home & Living"];
 const prods=[
 {id:1,name:'Mechanical Keyboard RGB',cat:'Tech Parts & Accessories',price:799,img:'⌨️'},
-{id:2,name:'Gaming Mouse 3200 DPI',cat:'Tech Parts & Accessories',price:299,img:'🖱️'},
-{id:3,name:'NVMe SSD 512GB',cat:'Tech Parts & Accessories',price:1999,img:'💾'},
+{id:2,name:'Gaming Mouse RGB',cat:'Tech Parts & Accessories',price:299,img:'🖱️'},
+{id:3,name:'SSD 512GB NVMe',cat:'Tech Parts & Accessories',price:1999,img:'💾'},
 {id:4,name:'Powerbank 20000mAh',cat:'Gadget',price:599,img:'🔋'},
-{id:5,name:'Wireless Earbuds TWS',cat:'Gadget',price:399,img:'🎧'},
-{id:6,name:'Phone Holder Motorcycle',cat:'Motorcycle Accessories',price:149,img:'📱'},
-{id:7,name:'Mini Electric Fan',cat:'Appliances',price:349,img:'🌀'},
+{id:5,name:'Earbuds TWS Pro',cat:'Gadget',price:399,img:'🎧'},
+{id:6,name:'Phone Holder Motorcycle',cat:'Motorcycle Accessories',price:149,img:'🏍️'},
+{id:7,name:'Mini Fan Rechargeable',cat:'Appliances',price:349,img:'🌀'},
 {id:8,name:'Rice Cooker 1.8L',cat:'Appliances',price:899,img:'🍚'},
-{id:9,name:'Oversized T-Shirt',cat:'Clothes',price:249,img:'👕'},
-{id:10,name:'Cargo Shorts',cat:'Clothes',price:299,img:'🩳'},
+{id:9,name:'Oversized T-Shirt Unisex',cat:'Clothes',price:249,img:'👕'},
+{id:10,name:'Cargo Shorts 6 Pocket',cat:'Clothes',price:299,img:'🩳'},
 {id:11,name:'Sling Bag Waterproof',cat:'Bag',price:199,img:'👜'},
 {id:12,name:'Backpack School',cat:'Bag',price:399,img:'🎒'},
 {id:13,name:'Notebook Set 6pcs',cat:'School Supply',price:129,img:'📓'},
 {id:14,name:'Gel Pen 12 Colors',cat:'School Supply',price:89,img:'🖊️'},
 {id:15,name:'Helmet Visor Clear',cat:'Motorcycle Accessories',price:199,img:'🪖'},
 ];
-let active='All';let cart=JSON.parse(localStorage.getItem('bkc')||'[]');
+let active='All';let cart=JSON.parse(localStorage.getItem('bkE')||'[]');
 function renderCats(){document.getElementById('catBar').innerHTML=cats.map(c=>`<button class="catBtn ${active==c?'active':''}" onclick="filterCat('${c}')">${c}</button>`).join('');}
 function renderGrid(){let f=active=='All'?prods:prods.filter(p=>p.cat==active);document.getElementById('grid').innerHTML=f.map(p=>`<div class="card"><div class="card-img">${p.img}</div><div class="name">${p.name}</div><div class="type">${p.cat}</div><div class="price">₱${p.price}</div><button class="buy" onclick="add(${p.id})">Add to Cart</button></div>`).join('');upd();}
 function filterCat(c){active=c;renderCats();renderGrid();}
-function add(id){let pr=prods.find(x=>x.id==id);let fn=cart.find(x=>x.id==id);if(fn)fn.q++;else cart.push({...pr,q:1});localStorage.setItem('bkc',JSON.stringify(cart));upd();alert('Added: '+pr.name);}
+function add(id){let pr=prods.find(x=>x.id==id);let fn=cart.find(x=>x.id==id);if(fn)fn.q++;else cart.push({...pr,q:1});localStorage.setItem('bkE',JSON.stringify(cart));upd();alert('💜 '+pr.name+' added!');}
 function upd(){document.getElementById('cnt').innerText=cart.reduce((a,b)=>a+b.q,0);}
 renderCats();renderGrid();
 </script>
