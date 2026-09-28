@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tindahan ni Boss Kaiya - Purple Tech Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#7c3aed;--purple2:#4c1d95;--dark:#0f0a1e;--light:#f5f3ff;--yellow:#facc15}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',Arial,sans-serif}
+body{background:#f5f3ff;color:#111}
+.topbar{background:var(--dark);color:#a78bfa;text-align:center;font-size:12px;padding:6px}
+.header{background:#000;display:flex;align-items:center;justify-content:space-between;padding:12px 16px;gap:10px;position:sticky;top:0;z-index:99;border-bottom:3px solid var(--purple)}
+.logo{color:var(--purple);font-weight:900;font-size:18px;line-height:1} .logo span{color:#fff;display:block}
+.search-wrap{flex:1;max-width:500px;position:relative}
+.search-wrap input{width:100%;padding:10px 40px 10px 15px;border-radius:25px;border:none;outline:none}
+.search-wrap button{position:absolute;right:5px;top:5px;background:var(--purple);border:none;color:#fff;width:32px;height:32px;border-radius:50%}
+.icons{color:#fff;display:flex;gap:15px;font-size:20px;cursor:pointer}
+.hero{background:linear-gradient(105deg,#0f0a1e 40%,#4c1d95 100%);color:#fff;padding:25px 16px;display:flex;align-items:center;justify-content:space-between;overflow:hidden;position:relative}
+.hero::after{content:'';position:absolute;right:-50px;top:0;width:60%;height:100%;background:linear-gradient(90deg,transparent,#7c3aed33);transform:skewX(-15deg)}
+.hero h1{font-size:32px;font-weight:900;line-height:.9;z-index:1} .hero h1 span{color:#c4b5fd}
+.hero p{color:#ddd;margin:8px 0;z-index:1;font-size:13px}
+.btn-purple{background:var(--purple);color:#fff;padding:12px 22px;border:none;border-radius:8px;font-weight:800;z-index:1;cursor:pointer}
+.cats{display:flex;gap:10px;overflow-x:auto;padding:12px;background:#fff;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{min-width:115px;background:#ede9fe;border:1.5px solid #c4b5fd;border-radius:12px;padding:12px 8px;text-align:center;flex-shrink:0}
+.cat b{font-size:11px;display:block;margin-top:6px}
+.section{padding:18px 12px}
+.section-dark{background:var(--dark);color:#fff}
+.section-purple{background:var(--purple2);color:#fff}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.section-title h2{font-size:20px;font-weight:900}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+.card{background:#fff;color:#111;border-radius:14px;padding:10px;position:relative;box-shadow:0 4px 12px rgba(0,0,0,.08);display:flex;flex-direction:column}
+.card .tag{position:absolute;top:8px;left:8px;background:var(--yellow);font-size:10px;font-weight:800;padding:3px 6px;border-radius:4px}
+.card img{width:100%;height:110px;object-fit:contain;margin:10px 0}
+.card .name{font-size:12px;font-weight:700;min-height:32px}
+.card .price{color:var(--purple);font-weight:900;font-size:16px;margin:6px 0}
+.card .old{font-size:11px;color:#888;text-decoration:line-through}
+.buy{background:var(--purple);color:#fff;border:none;width:100%;padding:9px;border-radius:8px;font-weight:800;cursor:pointer;margin-top:auto}
+.buy:hover{background:#000}
+.footer{background:#000;color:#aaa;padding:20px;text-align:center;font-size:12px;border-top:3px solid var(--purple)}
+#cartModal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;z-index:999;align-items:center;justify-content:center}
+#cartBox{background:#fff;width:90%;max-width:400px;border-radius:16px;padding:20px}
+</style>
+</head>
+<body>
+<div class="topbar">📦 FREE SHIPPING Metro Manila | GCash • Maya • COD • Ships Nationwide - Boss Kaiya Tech</div>
+<div class="header">
+<div class="logo">BOSS KAIYA <span>TECH SHOP</span></div>
+<div class="search-wrap"><input id="search" placeholder="Search processors, GPUs, laptops..."><button>🔍</button></div>
+<div class="icons"><span onclick="openCart()">🛒 (<b id="cartCount">0</b>)</span><span>👤</span></div>
+</div>
+
+<div class="hero">
+<div>
+<h1>LEVEL UP YOUR<br><span>SETUP</span></h1>
+<p>Build. Upgrade. Dominate.<br>Genuine Parts • Fast Delivery Nationwide</p>
+<button class="btn-purple" onclick="document.getElementById('desktops').scrollIntoView({behavior:'smooth'})">SHOP NOW →</button>
+</div>
+<div style="font-size:70px;z-index:1">💜🖥️</div>
+</div>
+
+<div class="cats">
+<div class="cat">🖥️<b>PROCESSOR</b></div>
+<div class="cat">🔧<b>MOTHERBOARD</b></div>
+<div class="cat">🎮<b>GRAPHICS CARD</b></div>
+<div class="cat">💾<b>MEMORY</b></div>
+<div class="cat">📦<b>STORAGE</b></div>
+<div class="cat">⌨️<b>ACCESSORIES</b></div>
+</div>
+
+<div id="desktops" class="section section-dark">
+<div class="section-title"><h2>DESKTOPS</h2><span style="color:#a78bfa">See More →</span></div>
+<div class="grid" id="desktopGrid"></div>
+</div>
+
+<div class="section section-purple">
+<div class="section-title"><h2>LAPTOPS</h2><span>See More →</span></div>
+<div class="grid" id="laptopGrid"></div>
+</div>
+
+<div class="section" style="background:#ddd6fe">
+<div class="section-title"><h2 style="color:#0f0a1e">🔥 SULIT DEALS</h2><span style="color:var(--purple2)">See More →</span></div>
+<div class="grid" id="dealsGrid"></div>
+</div>
+
+<div class="footer">
+© 2026 Tindahan ni Boss Kaiya • LEGIT PH TECH STORE • Dasmariñas, Cavite<br>
+Payments: GCash • Maya • Visa • COD | FB: Boss Kaiyah | Shopee Affiliate Partner<br><br>
+<strong style="color:var(--purple)">PURPLE THEME • EasyPC Inspired • Built for Boss Kaiya</strong>
+</div>
+
+<div id="cartModal" onclick="if(event.target==this)closeCart()">
+<div id="cartBox">
+<h3>🛒 Cart Mo Boss</h3>
+<div id="cartItems" style="margin:15px 0;max-height:300px;overflow:auto"></div>
+<h3>Total: <span id="cartTotal" style="color:var(--purple)">₱0</span></h3>
+<button class="buy" style="margin-top:10px" onclick="checkout()">CHECKOUT VIA SHOPEE / GCASH</button>
+<button style="width:100%;margin-top:8px;padding:8px;border:none;background:#eee;border-radius:8px" onclick="closeCart()">Close</button>
+</div>
+</div>
+
+<script>
+const products=[
+{id:1,cat:'desktop',name:'BK+ Core i7 Gaming Desktop 16GB/512GB SSD',price:49950,old:54950,save:'SAVE ₱5K',img:'🖥️'},
+{id:2,cat:'desktop',name:'BK Pro Core i5 Workstation 16GB/1TB SSD',price:34950,old:0,save:'BOSS KAIYA',img:'🖥️'},
+{id:3,cat:'desktop',name:'Mini PC Intel N100 8GB/256GB SSD',price:9950,old:0,save:'',img:'💻'},
+{id:4,cat:'laptop',name:'ASUS TUF Gaming F15 i5/16GB/512GB',price:64995,old:65995,save:'SAVE ₱1K',img:'💻'},
+{id:5,cat:'laptop',name:'MSI Modern 14 i5/16GB/512GB',price:47995,old:0,save:'',img:'💻'},
+{id:6,cat:'deals',name:'ASUS Dual RTX 4060 8GB',price:19995,old:21195,save:'SAVE ₱1,200',img:'🎮'},
+{id:7,cat:'deals',name:'Kingston KC3000 1TB NVMe SSD',price:4995,old:5795,save:'SAVE ₱800',img:'💾'},
+{id:8,cat:'deals',name:'AMD Ryzen 5 5600 6-Core',price:6995,old:7595,save:'SAVE ₱600',img:'⚡'},
+];
+
+let cart=JSON.parse(localStorage.getItem('bk_cart')||'[]');
+function render(){
+document.getElementById('desktopGrid').innerHTML=products.filter(p=>p.cat=='desktop').map(cardHTML).join('');
+document.getElementById('laptopGrid').innerHTML=products.filter(p=>p.cat=='laptop').map(cardHTML).join('');
+document.getElementById('dealsGrid').innerHTML=products.filter(p=>p.cat=='deals').map(cardHTML).join('');
+updateCart();
+}
+function cardHTML(p){
+return `<div class="card">
+${p.save?`<span class="tag">${p.save}</span>`:''}
+<div style="font-size:60px;text-align:center">${p.img}</div>
+<div class="name">${p.name}</div>
+${p.old?`<div class="old">₱${p.old.toLocaleString()}</div>`:''}
+<div class="price">₱${p.price.toLocaleString()}</div>
+<button class="buy" onclick="addCart(${p.id})">BUY NOW 🛒</button>
+</div>`;
+}
+function addCart(id){
+let prod=products.find(p=>p.id==id);
+let f=cart.find(c=>c.id==id);
+if(f)f.qty++; else cart.push({...prod,qty:1});
+localStorage.setItem('bk_cart',JSON.stringify(cart));
+updateCart();
+openCart();
+}
+function updateCart(){
+document.getElementById('cartCount').innerText=cart.reduce((a,b)=>a+b.qty,0);
+let total=cart.reduce((a,b)=>a+b.price*b.qty,0);
+document.getElementById('cartTotal').innerText='₱'+total.toLocaleString();
+document.getElementById('cartItems').innerHTML=cart.length?cart.map(c=>`<div style="display:flex;justify-content:space-between;margin:6px 0"><span>${c.img} ${c.name.slice(0,20)} x${c.qty}</span><b>₱${(c.price*c.qty).toLocaleString()}</b></div>`).join(''):'<p>Wala pa laman Boss.</p>';
+}
+function openCart(){document.getElementById('cartModal').style.display='flex'}
+function closeCart(){document.getElementById('cartModal').style.display='none'}
+function checkout(){
+let total=cart.reduce((a,b)=>a+b.price*b.qty,0);
+let msg=`Boss Kaiya! Order ko:%0A${cart.map(c=>`- ${c.name} x${c.qty}`).join('%0A')}%0ATotal: ₱${total}`;
+window.open(`https://m.me/BossKaiyah?text=${msg}`,'_blank');
+// Palitan mo ng Shopee affiliate link mo dito:
+window.open('https://s.shopee.com.ph/','_blank');
+alert('Salamat Boss! Na-redirect ka na sa Messenger at Shopee Affiliate mo!');
+}
+document.getElementById('search').addEventListener('input',e=>{
+let q=e.target.value.toLowerCase();
+let f=products.filter(p=>p.name.toLowerCase().includes(q));
+document.getElementById('desktopGrid').innerHTML=f.map(cardHTML).join('')||'<p style="color:#fff">Walang nahanap Boss</p>';
+});
+render();
+</script>
+</body>
+</html>
