@@ -1,100 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TEST CONVERTER LANG</title>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TEST V8.1 - No Proxy</title>
 <style>
 body{background:#0a0420;color:#fff;font-family:Arial;padding:15px}
-.box{background:#16102e;border:2px dashed #e879f9;border-radius:12px;padding:15px;text-align:center}
-.btn{background:linear-gradient(90deg,#e879f9,#a855f7);color:#fff;border:0;padding:12px 20px;border-radius:10px;font-weight:900;margin:5px}
-.log{background:#0a0420;border-radius:8px;padding:8px;font-size:11px;text-align:left;max-height:300px;overflow:auto;margin-top:10px;white-space:pre-wrap}
+.box{background:#16102e;border:2px dashed #4ade80;border-radius:12px;padding:15px;text-align:center}
+.btn{background:linear-gradient(90deg,#4ade80,#22c55e);color:#000;border:0;padding:12px 20px;border-radius:10px;font-weight:900;margin:5px}
+.log{background:#0a0420;border-radius:8px;padding:8px;font-size:11px;text-align:left;max-height:350px;overflow:auto;margin-top:10px;white-space:pre-wrap;border:1px solid #2a1a4a}
 textarea{width:100%;min-height:80px;background:#0f0828;color:#4ade80;border:1px solid #2a1a4a;border-radius:8px;padding:8px;font-size:10px;margin-top:10px}
-</style>
-</head>
-<body>
+.inp{width:100%;padding:10px;border-radius:8px;border:1px solid #a855f7;background:#0f0828;color:#fff;margin:8px 0;font-size:12px}
+</style></head><body>
 
 <div class="box">
-<h3 style="color:#e879f9">🔧 TEST CONVERTER LANG - WALANG IBANG CODE</h3>
-<input type="file" id="fileInput" accept="image/*" multiple hidden onchange="testConvert(event)">
-<button class="btn" onclick="fileInput.click()">📸 PILI 1 PIC MUNA - TEST!</button>
-<div id="status" style="margin-top:10px;color:#4ade80;font-weight:800">Ready to test...</div>
-<div id="log" class="log">Log dito lalabas...\n</div>
-<textarea id="result" placeholder="Dito lalabas link + comma..."></textarea>
+<h3 style="color:#4ade80">✅ V8.1 TEST - NO PROXY - DIRECT!</h3>
+<input id="myKey" class="inp" placeholder="Paste imgbb key dito (kuha sa api.imgbb.com) - optional">
+<input type="file" id="fileInput" accept="image/*" multiple hidden onchange="testV81(event)">
+<button class="btn" onclick="fileInput.click()">📸 PILI 1 PIC - TEST DIRECT!</button>
+<div id="status" style="margin-top:10px;color:#4ade80;font-weight:800">Ready - No Proxy na!</div>
+<div id="log" class="log">Log...\n</div>
+<textarea id="result" placeholder="Link + comma dito..."></textarea>
+<div id="preview" style="margin-top:10px"></div>
 </div>
 
 <script>
-async function testConvert(e){
+async function testV81(e){
   let files=Array.from(e.target.files);
-  let logEl=document.getElementById('log');
-  let status=document.getElementById('status');
-  let result=document.getElementById('result');
+  let logEl=document.getElementById('log'), status=document.getElementById('status'), result=document.getElementById('result'), preview=document.getElementById('preview');
+  function log(m){ logEl.innerText+=m+"\n"; }
+  logEl.innerText=`=== V8.1 START - ${files.length} file ===\n`;
   
-  function addLog(msg){ logEl.innerText+=msg+"\n"; console.log(msg); }
-  
-  addLog(`=== TEST START - ${files.length} file(s) ===`);
-  status.innerText="⏳ Compress...";
-  
-  // 1. COMPRESS TEST
-  try{
-    let blob=await compress(files[0], 0.6);
-    addLog(`✅ Compress OK - size: ${Math.round(blob.size/1024)}KB`);
-    status.innerText="⏳ Upload to imgbb...";
-    
-    // 2. IMGBB TEST - WITH OLD KEY
-    let KEY='6d207e02198a847aa98d0a2a901485a5';
-    addLog(`Trying imgbb with key ${KEY.substring(0,8)}...`);
-    let fd=new FormData(); fd.append('image', blob);
-    let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`, {method:'POST', body:fd});
-    let text=await r.text();
-    addLog(`imgbb response: ${text.substring(0,200)}`);
-    
-    let j=JSON.parse(text);
-    if(j.data?.url){
-      addLog(`✅ IMGBB SUCCESS! ${j.data.url}`);
-      status.innerText="✅ SUCCESS!";
-      result.value=j.data.url+", "; // WITH COMMA!
-      return;
+  for(let file of files){
+    status.innerText="⏳ Compress 24KB...";
+    let blob=await compress(file,0.6);
+    log(`✅ Compress OK ${Math.round(blob.size/1024)}KB`);
+
+    // TRY 1: CATBOX DIRECT - NO PROXY!
+    try{
+      log(`Trying CATBOX DIRECT (no proxy)...`);
+      status.innerText="⏳ Catbox direct...";
+      let fd=new FormData(); fd.append('reqtype','fileupload'); fd.append('fileToUpload', blob, 'test.jpg');
+      let r=await fetch('https://catbox.moe/user/api.php', {method:'POST', body:fd});
+      let t=await r.text();
+      log(`Catbox response: ${t.substring(0,150)}`);
+      if(t.startsWith('https://')){
+        log(`✅ CATBOX SUCCESS! ${t.trim()}`);
+        status.innerText="✅ SUCCESS via CATBOX DIRECT!";
+        result.value+=t.trim()+", "; // AUTO COMMA!
+        preview.innerHTML+=`<img src="${t.trim()}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;margin:2px">`;
+        continue;
+      }
+    }catch(err){ log(`❌ Catbox error: ${err.message}`); }
+
+    // TRY 2: IMGBB WITH YOUR KEY
+    let KEY=document.getElementById('myKey').value.trim();
+    if(KEY){
+      try{
+        log(`Trying imgbb with your key ${KEY.substring(0,8)}...`);
+        status.innerText="⏳ ImgBB with your key...";
+        let fd=new FormData(); fd.append('image', blob);
+        let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`, {method:'POST', body:fd});
+        let j=await r.json();
+        log(`imgbb: ${JSON.stringify(j).substring(0,200)}`);
+        if(j.data?.url){
+          log(`✅ IMGBB SUCCESS! ${j.data.url}`);
+          status.innerText="✅ SUCCESS via IMGBB!";
+          result.value+=j.data.url+", ";
+          preview.innerHTML+=`<img src="${j.data.url}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;margin:2px">`;
+          continue;
+        }
+      }catch(err){ log(`❌ imgbb error: ${err.message}`); }
     }else{
-      addLog(`❌ imgbb fail: ${j.error?.message || 'no url'}`);
+      log(`⚠️ No imgbb key - skip. Kuha ka sa api.imgbb.com para backup!`);
     }
-  }catch(err){
-    addLog(`❌ ERROR: ${err.message}`);
-    addLog(`Error full: ${err}`);
+
+    // TRY 3: LITTERBOX DIRECT
+    try{
+      log(`Trying Litterbox direct...`);
+      let fd=new FormData(); fd.append('reqtype','fileupload'); fd.append('time','72h'); fd.append('fileToUpload', blob, 'test.jpg');
+      let r=await fetch('https://litterbox.catbox.moe/resources/internals/api.php', {method:'POST', body:fd});
+      let t=await r.text();
+      log(`Litterbox: ${t.substring(0,150)}`);
+      if(t.startsWith('https://')){
+        log(`✅ LITTERBOX SUCCESS!`);
+        result.value+=t.trim()+", ";
+        continue;
+      }
+    }catch(err){ log(`❌ Litterbox error: ${err.message}`); }
+
+    log(`❌ ALL FAILED for ${file.name}`);
   }
-  
-  // 3. TRY CORS PROXY
-  try{
-    addLog(`Trying 0x0.st via corsproxy...`);
-    status.innerText="⏳ Try 0x0.st...";
-    let fd=new FormData(); fd.append('file', await compress(files[0],0.6), 'test.jpg');
-    let r=await fetch('https://corsproxy.io/?https://0x0.st', {method:'POST', body:fd});
-    let t=await r.text();
-    addLog(`0x0.st response: ${t.substring(0,200)}`);
-    if(t.includes('https://')){
-      addLog(`✅ 0x0.st SUCCESS! ${t.trim()}`);
-      status.innerText="✅ SUCCESS via 0x0.st!";
-      result.value=t.trim()+", ";
-      return;
-    }
-  }catch(err){
-    addLog(`❌ 0x0.st error: ${err.message}`);
-  }
-  
-  status.innerText="❌ ALL FAILED - CHECK LOG!";
-  addLog(`=== ALL HOSTS FAILED ===\nPossible reasons:\n1. No internet\n2. imgbb key banned\n3. corsproxy.io down\n4. Blocked by GitHub Pages`);
+  status.innerText=`DONE - ${result.value.split(',').filter(s=>s.trim()).length} links with comma!`;
+  log(`\n=== FINAL LINKS (with comma) ===\n${result.value}\n\nPag SAVE, erase last comma: result.replace(/,\\s*$/,'')`);
 }
 
 function compress(file,q){
   return new Promise(r=>{
     let img=new Image(); let url=URL.createObjectURL(file); img.src=url;
     img.onload=()=>{
-      let c=document.createElement('canvas');
-      let max=600; c.width=max; c.height=max*img.height/img.width;
+      let c=document.createElement('canvas'); let max=600; c.width=max; c.height=max*img.height/img.width;
       c.getContext('2d').drawImage(img,0,0,c.width,c.height);
       c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',q);
     };
     img.onerror=()=>{URL.revokeObjectURL(url); r(file);};
   });
 }
-</script>
-</body>
-</html>
+</script></body></html>
