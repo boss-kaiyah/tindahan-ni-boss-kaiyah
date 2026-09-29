@@ -1,59 +1,61 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Boss Kaiyah V12 - Auto Cut Short</title>
+<title>Boss Kaiyah V16 - Shopee Swipe</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#0a0420;color:#fff;font-family:Arial}
-#logo{text-align:center;padding:14px;font-size:20px;font-weight:900;background:linear-gradient(90deg,#a855f7,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
+#logo{text-align:center;padding:14px;font-size:18px;font-weight:900;background:linear-gradient(90deg,#a855f7,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
 .filter{display:flex;gap:6px;padding:10px;overflow-x:auto}.filter::-webkit-scrollbar{display:none}.filter button{flex:0 0 auto;background:#16102e;color:#c084fc;border:1px solid #a855f7;padding:8px 14px;border-radius:20px;font-weight:800;font-size:11px}.filter button.active{background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.card{background:#16102e;border:1px solid #2a1a4a;border-radius:14px;padding:8px}.card img{width:100%;height:160px;object-fit:cover;border-radius:10px;display:block;background:#0f0828}.price{color:#f5d0fe;font-weight:900}.buy{display:block;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}
+.card{background:#16102e;border:1px solid #2a1a4a;border-radius:14px;padding:8px;overflow:hidden}
+.swipe-wrap{position:relative;border-radius:10px;overflow:hidden;background:#000}
+.swipe-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.swipe-track::-webkit-scrollbar{display:none}
+.swipe-track img{width:100%;height:160px;object-fit:cover;flex:0 0 100%;scroll-snap-align:start;display:block}
+.dots{position:absolute;bottom:6px;left:0;right:0;display:flex;justify-content:center;gap:4px}
+.dot{width:6px;height:6px;border-radius:50%;background:#ffffff66}
+.dot.active{background:#fff}
+.price{color:#f5d0fe;font-weight:900}
+.buy{display:block;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
 #admin{display:none;margin:10px;background:#0f0828;border:2px solid #a855f7;border-radius:16px;padding:12px}
 .inp{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}
-.btn{width:100%;border:0;padding:14px;border-radius:12px;font-weight:900;margin:6px 0;font-size:13px;cursor:pointer}
+.btn{width:100%;border:0;padding:12px;border-radius:12px;font-weight:900;margin:5px 0;font-size:12px;cursor:pointer}
 .btn1{background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff}
 .btn2{background:linear-gradient(90deg,#4ade80,#22c55e);color:#000;display:none}
 .btn3{background:linear-gradient(90deg,#f59e0b,#f97316);color:#fff;display:none}
-.item{background:#fff;border-radius:12px;margin:8px 0;overflow:hidden;color:#000}
-.thumb{width:100%;background:#000;display:flex;justify-content:center;min-height:120px}.thumb img{max-width:100%;max-height:250px;object-fit:contain}
-.name{padding:8px;font-size:11px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-.links{padding:10px}
-.link-label{font-size:11px;font-weight:800;margin:6px 0 3px}
-.link-box{display:flex;border:1px solid #ccc;border-radius:8px;overflow:hidden}
-.link-box input{flex:1;border:0;padding:8px;font-size:10px;outline:none;min-width:0}
-.link-box button{border:0;border-left:1px solid #ccc;background:#f8f9fa;padding:6px 10px}
-.badge{background:#4ade80;color:#000;padding:3px 8px;border-radius:12px;font-size:9px;font-weight:900}
-.badge-cut{background:#f59e0b;color:#fff}
+.item{background:#fff;border-radius:10px;margin:6px 0;overflow:hidden;color:#000;display:flex;align-items:center;gap:8px;padding:6px}
+.item img{width:50px;height:50px;object-fit:cover;border-radius:6px;background:#000}
+.badge{background:#a855f7;color:#fff;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:900}
 </style></head><body>
 
-<div id="logo">💜 BOSS KAIYAH V12<small style="display:block;font-size:8px;color:#c084fc;-webkit-text-fill-color:#c084fc">AUTO CUT SHORT - TAP 10X</small></div>
+<div id="logo">💜 BOSS KAIYAH V16<small style="display:block;font-size:8px;color:#c084fc;-webkit-text-fill-color:#c084fc">1 LINK = 5 PICS SWIPE SHOPEE - TAP 10X</small></div>
 <div class="filter"><button class="active" onclick="filterCat('all',this)">ALL ✨</button><button onclick="filterCat('Motorcycle',this)">🏍️ Motor</button><button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button><button onclick="filterCat('Home Essentials',this)">🏠 Home</button><button onclick="filterCat('Fashion',this)">👗 Fashion</button></div>
 <div class="grid" id="grid"></div>
 
 <div id="admin">
 <div style="background:#fff;border-radius:16px;padding:12px;color:#000">
-<h3 style="text-align:center;margin:0 0 8px;color:#a855f7">💜 V12 - AUTO CUT MAISI!</h3>
-
-<div style="background:#4ade8022;border:2px solid #4ade80;border-radius:10px;padding:8px;text-align:center;font-size:10px;margin-bottom:8px">
-<b>✅ AUTO CUT LOGIC!</b><br>
-Pag Generate pa lang → Auto cut na sa short key!<br>
-<code>35243 chars → img_a1b2c3 (8 chars)</code><br>
-Pag Compress → Maisi pa rin!
+<h3 style="text-align:center;margin:0 0 8px;color:#a855f7">💜 V16 - SHOPEE SWIPE!</h3>
+<div style="background:#a855f722;border:2px solid #a855f7;border-radius:10px;padding:8px;text-align:center;font-size:10px;margin-bottom:8px">
+<b>✅ 1 SHOPEE LINK = 1 PRODUCT = 5 PICS SWIPE!</b><br>
+Sama-sama short keys → 1 product lang pero swipe parang Shopee!
 </div>
 
-<input id="myKey" class="inp" placeholder="Imgbb key optional - pag meron https link pa rin pero short key pa rin!" style="background:#fff;color:#000;border:1px solid #ddd">
-
+<input id="myKey" class="inp" placeholder="Imgbb key optional" style="background:#fff;color:#000;border:1px solid #ddd">
 <input type="file" id="fileInput" accept="image/*" multiple hidden onchange="step1(event)">
-<button id="btn1" class="btn btn1" onclick="fileInput.click()">📸 STEP 1: PILI PICTURE</button>
-<button id="btn2" class="btn btn2" onclick="step2()">⚡ STEP 2: GENERATE + AUTO CUT MAISI!</button>
-<button id="btn3" class="btn btn3" onclick="step3()">🗜️ STEP 3: COMPRESS - MAISI PA RIN!</button>
-
-<div id="status" style="font-size:11px;font-weight:800;margin:8px 0;color:#a855f7;text-align:center;background:#f5f5f5;padding:8px;border-radius:8px">Pili ka muna...</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<button class="btn btn1" onclick="fileInput.click()">📸 PILI ISA-ISA IPON</button>
+<button class="btn btn1" style="background:linear-gradient(90deg,#22c55e,#4ade80);color:#000" onclick="fileInput.click()">📸📸 PILI SABAY-SABAY!</button>
+</div>
+<div style="text-align:center;margin:6px 0"><span class="badge" id="countBadge">IPON: 0 PICS</span> <button style="background:#ff6b6b;color:#fff;border:0;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:900;display:none" id="clearBtn" onclick="clearIpon()">🗑️ CLEAR</button></div>
+<button id="btn2" class="btn btn2" onclick="step2()">⚡ GENERATE <span id="count2">0</span> - AUTO CUT MAISI!</button>
+<button id="btn3" class="btn btn3" onclick="step3()">🗜️ COMPRESS <span id="count3">0</span> TO 1 PRODUCT SWIPE!</button>
+<div id="status" style="font-size:11px;font-weight:800;margin:8px 0;color:#a855f7;text-align:center;background:#f5f5f5;padding:8px;border-radius:8px">Pili ka sabay-sabay - 1 link 1 product swipe!</div>
 <div id="list"></div>
-<textarea id="finalBox" style="width:100%;min-height:70px;background:#0f0828;color:#4ade80;border:2px solid #f59e0b;border-radius:10px;padding:10px;font-size:11px;margin-top:10px;display:none"></textarea>
-<button id="copyAllBtn" class="btn" style="background:#16102e;color:#f59e0b;border:1px solid #f59e0b;display:none" onclick="copyFinal()">📋 COPY FINAL - MAISI PA RIN!</button>
+<textarea id="finalBox" style="width:100%;min-height:60px;background:#0f0828;color:#4ade80;border:2px solid #f59e0b;border-radius:10px;padding:10px;font-size:11px;margin-top:10px;display:none"></textarea>
+<button id="copyAllBtn" class="btn" style="background:#16102e;color:#f59e0b;border:1px solid #f59e0b;display:none" onclick="copyFinal()">📋 COPY FINAL - 1 PRODUCT SWIPE!</button>
 </div>
 
 <div style="margin-top:12px">
-<input id="f_link" class="inp" placeholder="Affiliate Link">
-<textarea id="f_img" class="inp" style="min-height:60px" placeholder="Short keys auto cut - img_a1b2c3, img_x7y8z9 - maisi pa rin pag compress!"></textarea>
+<input id="f_link" class="inp" placeholder="Shopee Affiliate Link - ISANG LINK LANG!">
+<textarea id="f_img" class="inp" style="min-height:60px" placeholder="Sama-sama short keys - img_xxx, img_yyy, img_zzz, img_aaa, img_bbb - 1 PRODUCT LANG YAN PERO 5 PICS SWIPE!"></textarea>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
 <input id="f_brand" class="inp" placeholder="Brand"><input id="f_price" class="inp" placeholder="Price">
 </div>
@@ -62,124 +64,104 @@ Pag Compress → Maisi pa rin!
 <input id="f_cat" class="inp" placeholder="Category" list="cats"><datalist id="cats"><option value="Motorcycle"><option value="Gadgets"><option value="Home Essentials"><option value="Fashion"></datalist>
 <input id="f_rate" class="inp" placeholder="Rate">
 </div>
-<button class="btn btn1" onclick="saveV12()">💾 SAVE PRODUCT</button>
-<button class="btn" style="background:#1a1038;border:1px solid #a855f7" onclick="closeAdmin()">CLOSE</button>
+<button class="btn btn1" onclick="saveV16()">💾 SAVE 1 PRODUCT - 5 PICS SWIPE SHOPEE!</button>
+<button class="btn" style="background:#1a1038;border:1px solid #a855f7" onclick="closeAdmin()">CLOSE - TINGNAN MAIN PAGE SWIPE!</button>
 </div>
 </div>
 
 <script>
-let products=JSON.parse(localStorage.getItem('boss_kaiyah_v12')||'[]');
+let products=JSON.parse(localStorage.getItem('boss_kaiyah_v16')||'[]');
 let imageDB=JSON.parse(localStorage.getItem('boss_images_db')||'{}');
 let taps=0,timer,selected=[],generated=[];
 document.getElementById('logo').addEventListener('click',()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,3000);if(taps>=10){taps=0;if(prompt('Password:')==='kaiyah123'){admin.style.display='block';}}});
 function closeAdmin(){admin.style.display='none';renderGrid('all');}
-
 function genShortKey(){ return 'img_'+Math.random().toString(36).substring(2,8); }
 
 async function step1(e){
   let files=Array.from(e.target.files); if(!files.length) return;
-  selected=[]; generated=[]; list.innerHTML=''; finalBox.style.display='none'; copyAllBtn.style.display='none'; f_img.value='';
   for(let f of files){ let blob=await compress(f,0.5); selected.push({blob,name:f.name,preview:URL.createObjectURL(blob)}); }
-  list.innerHTML=selected.map(s=>`<div class="item"><div class="thumb"><img src="${s.preview}"></div><div class="name"><span>${s.name}</span><span class="badge">${Math.round(s.blob.size/1024)}KB</span></div></div>`).join('');
-  btn1.style.display='none'; btn2.style.display='block'; btn2.innerText=`⚡ GENERATE ${selected.length} + AUTO CUT!`; status.innerText=`✅ ${selected.length} ready - auto cut na sa maisi!`; fileInput.value='';
+  updateIponDisplay(); e.target.value='';
 }
+function updateIponDisplay(){
+  countBadge.innerText=`IPON: ${selected.length} PICS - 1 PRODUCT SWIPE!`; count2.innerText=selected.length; count3.innerText=selected.length;
+  list.innerHTML=selected.map((s,i)=>`<div class="item"><span class="badge">${i+1}</span><img src="${s.preview}"><div style="flex:1;font-size:11px"><b>${s.name}</b><br>${Math.round(s.blob.size/1024)}KB - Pang 1 product swipe!</div><button style="background:#ff6b6b;color:#fff;border:0;padding:4px 8px;border-radius:6px;font-size:10px" onclick="removeIpon(${i})">X</button></div>`).join('');
+  if(selected.length>0){ btn2.style.display='block'; clearBtn.style.display='inline-block'; status.innerText=`✅ ${selected.length} PICS NAI-IPON - 1 PRODUCT LANG TO - SWIPE PARANG SHOPEE!`; btn2.innerText=`⚡ GENERATE ${selected.length} - AUTO CUT - 1 PRODUCT SWIPE!`; } else { btn2.style.display='none'; clearBtn.style.display='none'; }
+}
+function removeIpon(i){ selected.splice(i,1); updateIponDisplay(); }
+function clearIpon(){ selected=[]; generated=[]; updateIponDisplay(); list.innerHTML=''; finalBox.style.display='none'; copyAllBtn.style.display='none'; btn3.style.display='none'; status.innerText='Clear - pili ka ulit sabay-sabay - 1 link 1 product!'; }
 
 async function step2(){
   let KEY=myKey.value.trim(); if(KEY) localStorage.setItem('imgbb_key',KEY);
-  status.innerText='⏳ Generating + Auto cutting to short key...'; btn2.disabled=true; list.innerHTML=''; generated=[];
-
+  if(!selected.length) return alert('Wala pa naipon!');
+  status.innerText=`⏳ Generate ${selected.length} for 1 product swipe + auto cut...`; btn2.disabled=true; list.innerHTML=''; generated=[];
   for(let i=0;i<selected.length;i++){
-    let {blob,name,preview}=selected[i];
-    let shortKey=genShortKey();
-    let fullData=null;
-
-    // TRY IMGBB - PERO AUTO CUT PA RIN SA SHORT KEY!
-    if(KEY){
-      try{
-        let fd=new FormData(); fd.append('image',blob);
-        let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`,{method:'POST',body:fd});
-        let j=await r.json();
-        if(j.data?.url){
-          fullData=j.data.url; // https link 50 chars
-          imageDB[shortKey]=fullData; // SAVE - SHORT KEY → HTTPS LINK
-          localStorage.setItem('boss_images_db',JSON.stringify(imageDB));
-          generated.push(shortKey); // AUTO CUT - SHORT KEY LANG!
-
-          list.innerHTML+=`
-            <div class="item">
-              <div class="thumb"><img src="${fullData}"></div>
-              <div class="name"><span>${name}</span><span class="badge badge-cut">AUTO CUT! ${fullData.length} → ${shortKey.length} chars</span></div>
-              <div class="links">
-                <div class="link-label">✅ Auto Cut Short Key <span style="color:#4ade80">(8 chars lang!)</span></div>
-                <div class="link-box"><input value="${shortKey}" readonly id="short${i}"><button onclick="copyId('short${i}')">📋</button></div>
-                <div class="link-label">Original (naka-save sa DB)</div>
-                <div class="link-box"><input value="${fullData}" readonly id="direct${i}"><button onclick="copyId('direct${i}')">📋</button></div>
-                <div style="font-size:9px;color:#4ade80;margin-top:4px">✅ 35243 → ${shortKey.length} chars - Auto cut na!</div>
-              </div>
-            </div>
-          `;
-          status.innerText=`✅ ${i+1}/${selected.length} AUTO CUT ${shortKey}!`;
-          continue;
-        }
-      }catch{}
-    }
-
-    // LOCAL - AUTO CUT AGAD!
-    fullData=await toBase64(blob);
-    imageDB[shortKey]=fullData;
-    localStorage.setItem('boss_images_db',JSON.stringify(imageDB));
-    generated.push(shortKey); // AUTO CUT!
-
-    list.innerHTML+=`
-      <div class="item">
-        <div class="thumb"><img src="${fullData}"></div>
-        <div class="name"><span>${name}</span><span class="badge badge-cut" style="background:#f59e0b">AUTO CUT! 35k → 8 chars</span></div>
-        <div class="links">
-          <div class="link-label">✅ Auto Cut Short Key - MAISI NA AGAD!</div>
-          <div class="link-box"><input value="${shortKey}" readonly id="short${i}"><button onclick="copyId('short${i}')">📋</button></div>
-          <div style="font-size:9px;color:#f59e0b;margin-top:4px">✅ 35243 chars → ${shortKey} (${shortKey.length} chars) - Naka-save sa DB!</div>
-        </div>
-      </div>
-    `;
-    status.innerText=`✅ ${i+1}/${selected.length} AUTO CUT ${shortKey} - MAISI NA!`;
+    let {blob}=selected[i]; let shortKey=genShortKey(); let fullData=null;
+    if(KEY){ try{ let fd=new FormData(); fd.append('image',blob); let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`,{method:'POST',body:fd}); let j=await r.json(); if(j.data?.url){ fullData=j.data.url; imageDB[shortKey]=fullData; localStorage.setItem('boss_images_db',JSON.stringify(imageDB)); generated.push(shortKey); list.innerHTML+=`<div class="item"><span class="badge">${i+1}</span><img src="${fullData}"><div style="flex:1;font-size:10px"><b>${shortKey}</b><br>AUTO CUT ${fullData.length}→${shortKey.length} - SWIPE!</div></div>`; continue; } }catch{} }
+    fullData=await toBase64(blob); imageDB[shortKey]=fullData; localStorage.setItem('boss_images_db',JSON.stringify(imageDB)); generated.push(shortKey);
+    list.innerHTML+=`<div class="item"><span class="badge">${i+1}</span><img src="${fullData}"><div style="flex:1;font-size:10px"><b>${shortKey}</b><br>35k→${shortKey.length} - SWIPE!</div></div>`;
   }
-
-  if(generated.length){
-    btn2.style.display='none'; btn3.style.display='block'; btn3.innerText=`🗜️ COMPRESS ${generated.length} SHORT KEYS - MAISI PA RIN!`; status.innerText=`✅ ${generated.length} AUTO CUT DONE! Lahat ${generated[0].length} chars lang per pic! Click COMPRESS - maisi pa rin!`;
-  }
+  if(generated.length){ btn2.style.display='none'; btn3.style.display='block'; count3.innerText=generated.length; status.innerText=`✅ ${generated.length} PICS AUTO CUT! 1 PRODUCT LANG - SWIPE SHOPEE STYLE! Click COMPRESS!`; }
   btn2.disabled=false;
 }
-
 function step3(){
   if(!generated.length) return;
-  // AUTO CUT NA KAYA MAISI PA RIN PAG COMPRESS!
   let combined=generated.join(', '); combined=combined.replace(/,\s*$/,'').trim();
   finalBox.style.display='block'; finalBox.value=combined; f_img.value=combined; copyAllBtn.style.display='block';
-  btn3.style.display='none'; btn1.style.display='block'; btn1.innerText=`📸 DONE! ${generated.length} MAISI PA RIN - PILI ULIT?`;
-  status.innerText=`✅ COMPRESSED! ${combined.length} chars total - Maisi pa rin! Dati ${generated.length*35243} chars - Ngayon ${combined.length} lang! Auto cut logic works!`;
+  btn3.style.display='none'; status.innerText=`✅ 1 PRODUCT READY - ${generated.length} PICS SWIPE! ${combined.length} chars lang - Maisi pa rin!`;
+  list.innerHTML+=`<div style="background:#4ade80;color:#000;border-radius:10px;padding:10px;margin-top:10px;text-align:center;font-weight:900">✅ 1 PRODUCT - ${generated.length} PICS SWIPE SHOPEE!<br>${combined}<br><span style="font-size:10px">ISANG SHOPEE LINK LANG PERO ${generated.length} PICS SWIPE!</span></div>`;
+  selected=[]; countBadge.innerText=`IPON: 0 PICS`;
+}
+function resolveImg(link){ if(!link) return ''; if(link.startsWith('img_')){ return imageDB[link]||link; } return link; }
+function copyFinal(){ finalBox.select(); document.execCommand('copy'); alert(`Copied ${generated.length} pics - 1 PRODUCT SWIPE - ${finalBox.value.length} chars lang!`); }
+
+// V16 - 1 LINK 1 PRODUCT PERO MARAMING PICS SWIPE!
+function saveV16(){
+  if(!f_link.value) return alert('Shopee Link required!'); let raw=f_img.value.trim().replace(/,\s*$/,'').trim(); if(!raw) return alert('Wala image!');
+  let links=raw.split(',').map(s=>s.trim()).filter(s=>s.length>2);
+  products.push({id:Date.now(),link:f_link.value.trim(),imgs:links,img:links[0],brand:f_brand.value||'MVR1',desc:f_desc.value||'Product',price:f_price.value||'0',cat:f_cat.value||'Motorcycle',rate:f_rate.value||'4.9'});
+  localStorage.setItem('boss_kaiyah_v16',JSON.stringify(products));
+  f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; list.innerHTML=''; finalBox.style.display='none'; copyAllBtn.style.display='none'; renderGrid('all');
+  alert(`✅ 1 PRODUCT SAVED with ${links.length} PICS SWIPE! Parang Shopee na! Maisi pa rin ${raw.length} chars!`);
 }
 
-function resolveImg(link){
-  if(!link) return '';
-  if(link.startsWith('img_')){ return imageDB[link]||link; }
-  return link;
-}
-
-function copyId(id){ let el=document.getElementById(id); el.select(); document.execCommand('copy'); status.innerText=`📋 Copied ${el.value} - ${el.value.length} chars lang!`; }
-function copyFinal(){ finalBox.select(); document.execCommand('copy'); alert(`Copied! ${finalBox.value.length} chars lang - Maisi pa rin! Auto cut works!`); }
-function saveV12(){
-  if(!f_link.value) return alert('Link required!'); let raw=f_img.value.trim().replace(/,\s*$/,'').trim(); f_img.value=raw;
-  let links=raw.split(',').map(s=>s.trim()).filter(s=>s.length>2); if(!links.length) return alert('Wala image!');
-  links.forEach(link=>{ products.push({id:Date.now()+Math.random(),link:f_link.value.trim(),img:link,brand:f_brand.value||'MVR1',desc:f_desc.value||'Product',price:f_price.value||'0',cat:f_cat.value||'Motorcycle',rate:f_rate.value||'4.9'}); });
-  localStorage.setItem('boss_kaiyah_v12',JSON.stringify(products)); f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; list.innerHTML=''; finalBox.style.display='none'; copyAllBtn.style.display='none'; renderGrid('all'); alert(`${links.length} saved - auto cut short keys - maisi pa rin!`);
-}
 function renderGrid(f='all'){
   let lp=f==='all'?products:products.filter(p=>p.cat===f);
-  document.getElementById('grid').innerHTML=lp.map(p=>{
-    let src=resolveImg(p.img);
-    return `<div class="card"><img src="${src}" onerror="this.src='https://via.placeholder.com/160'"><div style="font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand} <span style="font-size:8px;color:#4ade80">${p.img.startsWith('img_')?p.img:''}</span></div><div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div><div class="price">₱${p.price} ★${p.rate}</div><a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a></div>`;
-  }).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666">Wala pa - V12 Auto Cut!</div>`;
+  document.getElementById('grid').innerHTML=lp.map((p,idx)=>{
+    let imgs = p.imgs || [p.img];
+    let slides = imgs.map(key=>{
+      let src=resolveImg(key);
+      return `<img src="${src}" loading="lazy">`;
+    }).join('');
+    let dots = imgs.map((_,i)=>`<div class="dot ${i===0?'active':''}" id="dot-${idx}-${i}"></div>`).join('');
+    return `
+    <div class="card">
+      <div class="swipe-wrap">
+        <div class="swipe-track" id="track-${idx}" onscroll="updateDots(${idx},${imgs.length})">
+          ${slides}
+        </div>
+        <div class="dots">${dots}</div>
+        <div style="position:absolute;top:6px;left:6px;background:#00000099;color:#fff;font-size:8px;padding:2px 6px;border-radius:10px">${imgs.length} PICS 👉 SWIPE</div>
+      </div>
+      <div style="font-size:12px;font-weight:800;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand}</div>
+      <div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div>
+      <div class="price">₱${p.price} ★${p.rate}</div>
+      <a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒 - ${imgs.length} PICS</a>
+    </div>`;
+  }).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666">Wala pa - V16 Shopee Swipe!</div>`;
 }
+
+function updateDots(idx,total){
+  let track=document.getElementById(`track-${idx}`);
+  if(!track) return;
+  let scrollLeft=track.scrollLeft;
+  let width=track.clientWidth;
+  let active=Math.round(scrollLeft/width);
+  for(let i=0;i<total;i++){
+    let dot=document.getElementById(`dot-${idx}-${i}`);
+    if(dot) dot.classList.toggle('active', i===active);
+  }
+}
+
 function filterCat(c,b){ document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderGrid(c); }
 function compress(file,q){ return new Promise(r=>{ let img=new Image(); let url=URL.createObjectURL(file); img.src=url; img.onload=()=>{ let c=document.createElement('canvas'); let max=600; c.width=max; c.height=max*img.height/img.width; c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',q); }; img.onerror=()=>{URL.revokeObjectURL(url); r(file);}; });}
 function toBase64(b){ return new Promise(r=>{ let fr=new FileReader(); fr.onload=()=>r(fr.result); fr.readAsDataURL(b); }); }
