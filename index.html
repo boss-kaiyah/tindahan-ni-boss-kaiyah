@@ -1,105 +1,97 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TEST V8.1 - No Proxy</title>
+<title>Boss Kaiyah V8 Final</title>
 <style>
-body{background:#0a0420;color:#fff;font-family:Arial;padding:15px}
-.box{background:#16102e;border:2px dashed #4ade80;border-radius:12px;padding:15px;text-align:center}
-.btn{background:linear-gradient(90deg,#4ade80,#22c55e);color:#000;border:0;padding:12px 20px;border-radius:10px;font-weight:900;margin:5px}
-.log{background:#0a0420;border-radius:8px;padding:8px;font-size:11px;text-align:left;max-height:350px;overflow:auto;margin-top:10px;white-space:pre-wrap;border:1px solid #2a1a4a}
-textarea{width:100%;min-height:80px;background:#0f0828;color:#4ade80;border:1px solid #2a1a4a;border-radius:8px;padding:8px;font-size:10px;margin-top:10px}
-.inp{width:100%;padding:10px;border-radius:8px;border:1px solid #a855f7;background:#0f0828;color:#fff;margin:8px 0;font-size:12px}
+*{box-sizing:border-box}body{margin:0;background:#0a0420;color:#fff;font-family:Arial}
+#logo{text-align:center;padding:14px;font-size:20px;font-weight:900;background:linear-gradient(90deg,#a855f7,#e879f9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
+.filter{display:flex;gap:6px;padding:10px;overflow-x:auto}.filter::-webkit-scrollbar{display:none}.filter button{flex:0 0 auto;background:#16102e;color:#c084fc;border:1px solid #a855f7;padding:8px 14px;border-radius:20px;font-weight:800;font-size:11px}.filter button.active{background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:10px}.card{background:#16102e;border:1px solid #2a1a4a;border-radius:14px;padding:8px}.card img{width:100%;height:160px;object-fit:cover;border-radius:10px;background:#0f0828;display:block}.price{color:#f5d0fe;font-weight:900}.buy{display:block;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;text-align:center;padding:8px;border-radius:8px;text-decoration:none;font-weight:900;margin-top:5px;font-size:11px}
+#admin{display:none;margin:10px;background:#0f0828;border:2px solid #a855f7;border-radius:16px;padding:12px}
+.inp,.inp-area{width:100%;padding:10px;border-radius:10px;border:1px solid #2a1a4a;background:#16102e;color:#fff;margin:4px 0;font-size:12px}.inp-area{min-height:70px}
+.btn{width:100%;background:linear-gradient(90deg,#a855f7,#e879f9);color:#fff;border:0;padding:11px;border-radius:10px;font-weight:900;margin:5px 0}
+.btn2{background:linear-gradient(90deg,#4ade80,#22c55e);color:#000;display:none}
+.btn3{background:linear-gradient(90deg,#f59e0b,#f97316);color:#fff;display:none}
+.item{background:#1a1038;border:1px solid #2a1a4a;border-radius:10px;padding:6px;margin:6px 0;display:flex;gap:6px;align-items:center}
+.item img{width:45px;height:45px;object-fit:cover;border-radius:6px;border:1px solid #a855f7}
+.linkbox{flex:1;background:#0f0828;color:#4ade80;border:1px solid #333;border-radius:5px;padding:5px;font-size:8px}
 </style></head><body>
 
-<div class="box">
-<h3 style="color:#4ade80">✅ V8.1 TEST - NO PROXY - DIRECT!</h3>
-<input id="myKey" class="inp" placeholder="Paste imgbb key dito (kuha sa api.imgbb.com) - optional">
-<input type="file" id="fileInput" accept="image/*" multiple hidden onchange="testV81(event)">
-<button class="btn" onclick="fileInput.click()">📸 PILI 1 PIC - TEST DIRECT!</button>
-<div id="status" style="margin-top:10px;color:#4ade80;font-weight:800">Ready - No Proxy na!</div>
-<div id="log" class="log">Log...\n</div>
-<textarea id="result" placeholder="Link + comma dito..."></textarea>
-<div id="preview" style="margin-top:10px"></div>
+<div id="logo">💜 BOSS KAIYAH<small style="display:block;font-size:8px;color:#c084fc;-webkit-text-fill-color:#c084fc">V8 FINAL 3 STEPS - TAP 10X</small></div>
+<div class="filter"><button class="active" onclick="filterCat('all',this)">ALL ✨</button><button onclick="filterCat('Motorcycle',this)">🏍️ Motor</button><button onclick="filterCat('Gadgets',this)">🔌 Gadgets</button><button onclick="filterCat('Home Essentials',this)">🏠 Home</button><button onclick="filterCat('Fashion',this)">👗 Fashion</button></div>
+<div class="grid" id="grid"></div>
+
+<div id="admin">
+<div style="background:#16102e;border:2px dashed #e879f9;border-radius:12px;padding:10px;text-align:center">
+<b style="color:#e879f9">💜 V8 - POSTIMAGES 3 STEPS!</b><br>
+<input id="myKey" class="inp" placeholder="Imgbb key - api.imgbb.com - para https link!" style="border:2px solid #4ade80">
+<input type="file" id="fileInput" accept="image/*" multiple hidden onchange="step1(event)">
+<button id="btn1" class="btn" style="background:linear-gradient(90deg,#a855f7,#e879f9)" onclick="fileInput.click()">📸 STEP 1: PILI PICTURE - IPON MUNA</button>
+<button id="btn2" class="btn btn2" onclick="step2()">⚡ STEP 2: GENERATE - ISA ISA DIRECT LINK</button>
+<button id="btn3" class="btn btn3" onclick="step3()">🗜️ STEP 3: COMPRESS LINK - GAWING ISA!</button>
+<div id="status" style="font-size:11px;color:#c084fc;font-weight:800;margin-top:6px">Pili muna...</div>
+<div id="list" style="max-height:200px;overflow:auto;margin-top:6px"></div>
+</div>
+
+<div style="margin-top:12px">
+<input id="f_link" class="inp" placeholder="Affiliate Link (Shopee/Lazada)">
+<textarea id="f_img" class="inp-area" placeholder="Image links - auto from COMPRESS - may comma, last comma erased!"></textarea>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<input id="f_brand" class="inp" placeholder="Brand"><input id="f_price" class="inp" placeholder="Price">
+</div>
+<textarea id="f_desc" class="inp-area" placeholder="Description"></textarea>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<input id="f_cat" class="inp" placeholder="Category" list="cats"><datalist id="cats"><option value="Motorcycle"><option value="Gadgets"><option value="Home Essentials"><option value="Fashion"></datalist>
+<input id="f_rate" class="inp" placeholder="Rate 4.9">
+</div>
+<button class="btn" onclick="saveV8()">💾 SAVE PRODUCT</button>
+<button class="btn" style="background:#1a1038;border:1px solid #a855f7" onclick="closeAdmin()">CLOSE</button>
+</div>
 </div>
 
 <script>
-async function testV81(e){
-  let files=Array.from(e.target.files);
-  let logEl=document.getElementById('log'), status=document.getElementById('status'), result=document.getElementById('result'), preview=document.getElementById('preview');
-  function log(m){ logEl.innerText+=m+"\n"; }
-  logEl.innerText=`=== V8.1 START - ${files.length} file ===\n`;
-  
-  for(let file of files){
-    status.innerText="⏳ Compress 24KB...";
-    let blob=await compress(file,0.6);
-    log(`✅ Compress OK ${Math.round(blob.size/1024)}KB`);
+let products=JSON.parse(localStorage.getItem('boss_kaiyah_v8')||'[]');
+let taps=0,timer,selected=[],generated=[];
+document.getElementById('logo').addEventListener('click',()=>{taps++;clearTimeout(timer);timer=setTimeout(()=>taps=0,3000);if(taps>=10){taps=0;if(prompt('Password:')==='kaiyah123'){admin.style.display='block';}}});
+function closeAdmin(){admin.style.display='none';renderGrid('all');}
 
-    // TRY 1: CATBOX DIRECT - NO PROXY!
-    try{
-      log(`Trying CATBOX DIRECT (no proxy)...`);
-      status.innerText="⏳ Catbox direct...";
-      let fd=new FormData(); fd.append('reqtype','fileupload'); fd.append('fileToUpload', blob, 'test.jpg');
-      let r=await fetch('https://catbox.moe/user/api.php', {method:'POST', body:fd});
-      let t=await r.text();
-      log(`Catbox response: ${t.substring(0,150)}`);
-      if(t.startsWith('https://')){
-        log(`✅ CATBOX SUCCESS! ${t.trim()}`);
-        status.innerText="✅ SUCCESS via CATBOX DIRECT!";
-        result.value+=t.trim()+", "; // AUTO COMMA!
-        preview.innerHTML+=`<img src="${t.trim()}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;margin:2px">`;
-        continue;
-      }
-    }catch(err){ log(`❌ Catbox error: ${err.message}`); }
-
-    // TRY 2: IMGBB WITH YOUR KEY
-    let KEY=document.getElementById('myKey').value.trim();
-    if(KEY){
-      try{
-        log(`Trying imgbb with your key ${KEY.substring(0,8)}...`);
-        status.innerText="⏳ ImgBB with your key...";
-        let fd=new FormData(); fd.append('image', blob);
-        let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`, {method:'POST', body:fd});
-        let j=await r.json();
-        log(`imgbb: ${JSON.stringify(j).substring(0,200)}`);
-        if(j.data?.url){
-          log(`✅ IMGBB SUCCESS! ${j.data.url}`);
-          status.innerText="✅ SUCCESS via IMGBB!";
-          result.value+=j.data.url+", ";
-          preview.innerHTML+=`<img src="${j.data.url}" style="width:80px;height:80px;object-fit:cover;border-radius:6px;margin:2px">`;
-          continue;
-        }
-      }catch(err){ log(`❌ imgbb error: ${err.message}`); }
-    }else{
-      log(`⚠️ No imgbb key - skip. Kuha ka sa api.imgbb.com para backup!`);
-    }
-
-    // TRY 3: LITTERBOX DIRECT
-    try{
-      log(`Trying Litterbox direct...`);
-      let fd=new FormData(); fd.append('reqtype','fileupload'); fd.append('time','72h'); fd.append('fileToUpload', blob, 'test.jpg');
-      let r=await fetch('https://litterbox.catbox.moe/resources/internals/api.php', {method:'POST', body:fd});
-      let t=await r.text();
-      log(`Litterbox: ${t.substring(0,150)}`);
-      if(t.startsWith('https://')){
-        log(`✅ LITTERBOX SUCCESS!`);
-        result.value+=t.trim()+", ";
-        continue;
-      }
-    }catch(err){ log(`❌ Litterbox error: ${err.message}`); }
-
-    log(`❌ ALL FAILED for ${file.name}`);
+async function step1(e){
+  let files=Array.from(e.target.files); if(!files.length) return;
+  selected=[]; generated=[]; document.getElementById('list').innerHTML=''; document.getElementById('f_img').value='';
+  for(let f of files){ let blob=await compress(f,0.6); selected.push({blob,name:f.name,preview:URL.createObjectURL(blob)}); }
+  document.getElementById('list').innerHTML=selected.map(s=>`<div class="item"><img src="${s.preview}"><div style="flex:1;font-size:9px"><b>${s.name}</b><br><span style="color:#aaa">Ready...</span></div></div>`).join('');
+  btn1.style.display='none'; btn2.style.display='block'; btn2.innerText=`⚡ GENERATE ${selected.length} DIRECT LINKS!`; status.innerText=`✅ ${selected.length} ready - Generate isa-isa!`; fileInput.value='';
+}
+async function step2(){
+  let KEY=myKey.value.trim(); if(KEY) localStorage.setItem('imgbb_key',KEY);
+  status.innerText='⏳ Generate isa-isa...'; btn2.disabled=true; list.innerHTML=''; generated=[];
+  for(let i=0;i<selected.length;i++){
+    let {blob,name,preview}=selected[i]; let link=null;
+    if(KEY){ try{ let fd=new FormData(); fd.append('image',blob); let r=await fetch(`https://api.imgbb.com/1/upload?key=${KEY}`,{method:'POST',body:fd}); let j=await r.json(); if(j.data?.url) link=j.data.url; }catch{} }
+    if(!link) link=await toBase64(blob);
+    generated.push(link);
+    list.innerHTML+=`<div class="item"><img src="${preview}"><div style="flex:1;min-width:0"><div style="font-size:7px;color:#4ade80">Direct Link ${i+1}</div><input class="linkbox" value="${link}" readonly id="l${i}"></div><button style="background:#a855f7;color:#fff;border:0;padding:4px 6px;border-radius:5px;font-size:8px;font-weight:900" onclick="document.getElementById('l${i}').select();document.execCommand('copy')">COPY</button></div>`;
+    status.innerText=`✅ ${i+1}/${selected.length} Direct Link!`;
   }
-  status.innerText=`DONE - ${result.value.split(',').filter(s=>s.trim()).length} links with comma!`;
-  log(`\n=== FINAL LINKS (with comma) ===\n${result.value}\n\nPag SAVE, erase last comma: result.replace(/,\\s*$/,'')`);
+  btn2.style.display='none'; btn3.style.display='block'; btn3.innerText=`🗜️ COMPRESS ${generated.length} TO ONE!`; status.innerText=`✅ ${generated.length} Direct Links - Click COMPRESS!`;
 }
-
-function compress(file,q){
-  return new Promise(r=>{
-    let img=new Image(); let url=URL.createObjectURL(file); img.src=url;
-    img.onload=()=>{
-      let c=document.createElement('canvas'); let max=600; c.width=max; c.height=max*img.height/img.width;
-      c.getContext('2d').drawImage(img,0,0,c.width,c.height);
-      c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',q);
-    };
-    img.onerror=()=>{URL.revokeObjectURL(url); r(file);};
-  });
+function step3(){
+  if(!generated.length) return alert('Generate muna!');
+  let combined=generated.join(', '); combined=combined.replace(/,\s*$/,'').trim(); // ERASE LAST COMMA!
+  f_img.value=combined;
+  status.innerText=`✅ COMPRESSED! ${generated.length} links = ISA - Last comma erased! Pwede na SAVE!`;
+  btn3.style.display='none'; btn1.style.display='block'; btn1.innerText=`📸 DONE! ${generated.length} COMPRESSED - PILI ULIT?`;
+  list.innerHTML+=`<div style="background:#f59e0b22;border:1px solid #f59e0b;border-radius:8px;padding:6px;font-size:9px;color:#f59e0b;margin-top:6px">✅ Final: ${combined.substring(0,80)}... (${combined.length} chars)</div>`;
+  btn2.disabled=false; selected=[]; generated=[];
 }
+function saveV8(){
+  if(!f_link.value) return alert('Link required!'); let raw=f_img.value.trim().replace(/,\s*$/,'').trim(); f_img.value=raw;
+  let links=raw.split(',').map(s=>s.trim()).filter(s=>s.length>20); if(!links.length) return alert('Wala image!');
+  links.forEach(link=>{ products.push({id:Date.now()+Math.random(),link:f_link.value.trim(),img:link,brand:f_brand.value||'MVR1',desc:f_desc.value||'Product',price:f_price.value||'0',cat:f_cat.value||'Motorcycle',rate:f_rate.value||'4.9'}); });
+  localStorage.setItem('boss_kaiyah_v8',JSON.stringify(products)); f_link.value=f_img.value=f_brand.value=f_desc.value=f_price.value=f_cat.value=f_rate.value=''; list.innerHTML=''; renderGrid('all'); alert(`${links.length} saved!`);
+}
+function renderGrid(f='all'){ let listP=f==='all'?products:products.filter(p=>p.cat===f); document.getElementById('grid').innerHTML=listP.map(p=>`<div class="card"><img src="${p.img}" loading="eager"><div style="font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.brand}</div><div style="font-size:10px;color:#aaa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${p.desc}</div><div class="price">₱${p.price} ★${p.rate}</div><a href="${p.link}" target="_blank" class="buy">BUY NOW 🛒</a></div>`).join('')||`<div style="grid-column:1/3;text-align:center;padding:30px;color:#666">Wala pa - V8 Final!</div>`; }
+function filterCat(c,b){ document.querySelectorAll('.filter button').forEach(x=>x.classList.remove('active')); b.classList.add('active'); renderGrid(c); }
+function compress(file,q){ return new Promise(r=>{ let img=new Image(); let url=URL.createObjectURL(file); img.src=url; img.onload=()=>{ let c=document.createElement('canvas'); let max=650; c.width=max; c.height=max*img.height/img.width; c.getContext('2d').drawImage(img,0,0,c.width,c.height); c.toBlob(b=>{r(b); URL.revokeObjectURL(url);},'image/jpeg',q); }; img.onerror=()=>{URL.revokeObjectURL(url); r(file);}; });}
+function toBase64(b){ return new Promise(r=>{ let fr=new FileReader(); fr.onload=()=>r(fr.result); fr.readAsDataURL(b); }); }
+(function(){ let k=localStorage.getItem('imgbb_key'); if(k) myKey.value=k; })();
+renderGrid();
 </script></body></html>
